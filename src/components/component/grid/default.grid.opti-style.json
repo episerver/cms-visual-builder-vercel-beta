@@ -1,0 +1,31 @@
+{
+    "key": "DefaultGrid",
+    "displayName": "Default",
+    "baseType": "Section",
+    "isDefault": true,
+    "settings": {
+        "gridWidth": {
+            "displayName": "Width",
+            "editor": "selectOne",
+            "sortOrder": 10,
+            "choices": {
+                "default": {
+                    "displayName": "Default",
+                    "sortOrder": 10
+                },
+                "full": {
+                    "displayName": "Full width",
+                    "sortOrder": 20
+                },
+                "wide": {
+                    "displayName": "Wide",
+                    "sortOrder": 30
+                },
+                "narrow": {
+                    "displayName": "Narrow",
+                    "sortOrder": 40
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "key": "DefaultColumn",
+    "displayName": "Default",
+    "nodeType": "column",
+    "isDefault": true,
+    "settings": {}
+}

@@ -1,0 +1,15 @@
+query getDictionary($dictionary: String!, $locale:[Locales]) {
+  getDictionary: Dictionary (
+    where: { DictionaryKey: {eq: $dictionary}}
+    locale: $locale
+  ) {
+    total
+    items {
+      key: DictionaryKey
+      contents:DictionaryItems {
+        key:DictionaryItemKey
+        value:DictionaryItemValue
+      }
+    }
+  }
+}

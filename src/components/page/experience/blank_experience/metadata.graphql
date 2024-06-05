@@ -1,0 +1,14 @@
+query getBlankExperienceMetaData($key: String!, $version: String) {
+    BlankExperience(
+        where: { _metadata: { key: { eq: $key }, version: { eq: $version } } }
+    ) {
+        items {
+            _metadata {
+                displayName
+            }
+            SeoSettings {
+                metaTitle
+            }
+        }
+    }
+}

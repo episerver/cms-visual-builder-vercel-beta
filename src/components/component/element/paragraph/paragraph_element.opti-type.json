@@ -1,0 +1,21 @@
+{
+    "key": "ParagraphElement",
+    "displayName": "Paragraph",
+    "description": "",
+    "baseType": "element",
+    "sortOrder": 0,
+    "mayContainTypes": [],
+    "mediaFileExtensions": [],
+    "properties": {
+        "text": {
+            "type": "string",
+            "displayName": "Text",
+            "description": "",
+            "localized": true,
+            "required": true,
+            "group": "Information",
+            "sortOrder": 10,
+            "editorSettings": {}
+        }
+    }
+}

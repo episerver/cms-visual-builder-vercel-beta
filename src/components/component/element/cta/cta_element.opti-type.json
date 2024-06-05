@@ -1,0 +1,32 @@
+{
+    "key": "CTAElement",
+    "displayName": "Call To Action",
+    "description": "Basic call-to-action element, typically rendered as a button",
+    "baseType": "element",
+    "source": "",
+    "sortOrder": 0,
+    "mayContainTypes": [],
+    "mediaFileExtensions": [],
+    "properties": {
+        "Link": {
+            "type": "url",
+            "displayName": "Link",
+            "description": "",
+            "localized": false,
+            "required": false,
+            "group": "Information",
+            "sortOrder": 0,
+            "editorSettings": {}
+        },
+        "Text": {
+            "type": "string",
+            "displayName": "Text",
+            "description": "",
+            "localized": false,
+            "required": false,
+            "group": "Information",
+            "sortOrder": 0,
+            "editorSettings": {}
+        }
+    }
+}

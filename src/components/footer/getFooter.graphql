@@ -1,0 +1,45 @@
+query getFooter {
+  footer: WebsiteFooter {
+    total
+    items {
+      address: FooterMainOfficeLocation {
+      	...OfficeLocationData
+      }
+      firstMenu: FooterFirstLinkList {
+        ...MenuContent
+      }
+      secondMenu: FooterSecondLinkList {
+        ...MenuContent
+      }
+      thirdMenu: FooterThirdLinkList {
+        ...MenuContent
+      }
+      logo: FooterLogo {
+        ...ReferenceData
+      }
+      logoAlt: FooterLogoAltText
+      legal: FooterLegalLinks {
+        ...LinkItemData
+      }
+    }
+  }
+}
+
+fragment MenuContent on NavigationMenuBlockProperty {
+  heading: MenuNavigationHeading
+  links: NavigationLinks {
+    ...LinkItemData
+  }
+}
+
+fragment OfficeLocationData on OfficeLocation 
+{
+  title: OfficeTitle
+  street1: OfficeAddressStreet1
+  street2: OfficeAddressStreet2
+  postalcode: OfficeAddressPostalCode
+  city: OfficeAddressCity
+  country: OfficeAddressCountry
+  phone: OfficePhone
+  email: OfficeEmail
+}

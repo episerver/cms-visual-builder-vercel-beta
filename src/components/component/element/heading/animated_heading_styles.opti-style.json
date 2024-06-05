@@ -1,0 +1,62 @@
+{
+    "key": "AnimatedHeadingStyles",
+    "displayName": "Animated",
+    "contentType": "HeadingElement",
+    "isDefault": false,
+    "settings": {
+        "headingType": {
+            "displayName": "Heading Type",
+            "editor": "selectOne",
+            "sortOrder": 10,
+            "choices": {
+                "h1": {
+                    "displayName": "Heading 1",
+                    "sortOrder": 10
+                },
+                "h2": {
+                    "displayName": "Heading 2",
+                    "sortOrder": 20
+                },
+                "h3": {
+                    "displayName": "Heading 3",
+                    "sortOrder": 30
+                },
+                "h4": {
+                    "displayName": "Heading 4",
+                    "sortOrder": 40
+                },
+                "h5": {
+                    "displayName": "Heading 5",
+                    "sortOrder": 50
+                },
+                "h6": {
+                    "displayName": "Heading 6",
+                    "sortOrder": 60
+                }
+            }
+        },
+        "delay": {
+            "displayName": "Animation delay",
+            "editor": "selectOne",
+            "sortOrder": 20,
+            "choices": {
+                "none": {
+                    "displayName": "None",
+                    "sortOrder": 10
+                },
+                "short": {
+                    "displayName": "Short (0.5s)",
+                    "sortOrder": 20
+                },
+                "medium": {
+                    "displayName": "Medium (1s)",
+                    "sortOrder": 30
+                },
+                "long": {
+                    "displayName": "Long (1.5s)",
+                    "sortOrder": 40
+                }
+            }
+        }
+    }
+}

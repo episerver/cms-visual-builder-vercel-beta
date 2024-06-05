@@ -1,0 +1,10 @@
+fragment TestimonialElementData on TestimonialElement
+{
+  referenceTitle
+  referenceText { json }
+  customerName
+  customerLocation
+  customerImage {
+    ...ReferenceData
+  }
+}

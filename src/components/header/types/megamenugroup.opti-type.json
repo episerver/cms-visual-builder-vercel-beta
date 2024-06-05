@@ -1,0 +1,49 @@
+{
+    "key": "MegaMenuGroupBlock",
+    "displayName": "Mega menu group",
+    "description": "",
+    "baseType": "component",
+    "sortOrder": 100,
+    "mayContainTypes": [],
+    "mediaFileExtensions": [],
+    "properties": {
+        "MenuMenuHeading": {
+            "type": "string",
+            "format": "ShortString",
+            "displayName": "Heading",
+            "description": "",
+            "localized": true,
+            "required": false,
+            "group": "Information",
+            "sortOrder": 10,
+            "editorSettings": {}
+        },
+        "MegaMenuUrl": {
+            "type": "url",
+            "displayName": "Menu item link",
+            "description": "",
+            "localized": false,
+            "required": false,
+            "group": "Information",
+            "sortOrder": 20,
+            "editorSettings": {}
+        },
+        "MegaMenuContentArea": {
+            "type": "array",
+            "displayName": "Navigation content",
+            "description": "",
+            "localized": false,
+            "required": false,
+            "group": "Information",
+            "sortOrder": 30,
+            "editorSettings": {},
+            "items": {
+                "type": "content",
+                "allowedTypes": [
+                    "NavigationMenuBlock"
+                ],
+                "restrictedTypes": []
+            }
+        }
+    }
+}

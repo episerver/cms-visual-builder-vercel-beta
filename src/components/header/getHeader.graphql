@@ -1,0 +1,17 @@
+query getHeader {
+    menuItems: HeaderBlock {
+        items {
+            logo: site_logo {
+                ...ReferenceData
+            }
+            headerNavigation: site_main_navigation {
+                ...IContentData
+                ...MegaMenuGroupBlockData
+            }
+            utilityNavigation: site_utility_navigation {
+                ...IContentData
+                ...ButtonBlockData
+            }
+        }
+    }
+}

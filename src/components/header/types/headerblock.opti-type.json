@@ -1,0 +1,57 @@
+{
+    "key": "HeaderBlock",
+    "displayName": "Website header configuration",
+    "description": "Configure the header of the website",
+    "baseType": "component",
+    "sortOrder": 900,
+    "mayContainTypes": [],
+    "mediaFileExtensions": [],
+    "properties": {
+        "site_logo": {
+            "type": "contentReference",
+            "displayName": "Logo",
+            "description": "The logo for this site",
+            "localized": false,
+            "required": false,
+            "group": "Information",
+            "sortOrder": 10,
+            "editorSettings": {},
+            "allowedTypes": [
+                "Image"
+            ],
+            "restrictedTypes": []
+        },
+        "site_main_navigation": {
+            "type": "array",
+            "displayName": "Main navigation",
+            "description": "",
+            "localized": false,
+            "required": false,
+            "group": "Information",
+            "sortOrder": 100,
+            "editorSettings": {},
+            "items": {
+                "type": "content",
+                "allowedTypes": [
+                    "MegaMenuGroupBlock"
+                ],
+                "restrictedTypes": []
+            }
+        },
+        "site_utility_navigation": {
+            "type": "array",
+            "displayName": "Utility navigation",
+            "description": "",
+            "localized": false,
+            "required": false,
+            "group": "Information",
+            "sortOrder": 200,
+            "editorSettings": {},
+            "items": {
+                "type": "content",
+                "allowedTypes": [],
+                "restrictedTypes": []
+            }
+        }
+    }
+}

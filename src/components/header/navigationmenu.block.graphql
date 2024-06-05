@@ -1,0 +1,6 @@
+fragment NavigationMenuBlockData on NavigationMenuBlock {
+  title: MenuNavigationHeading
+  items: NavigationLinks {
+    ...LinkItemData
+  }
+}
