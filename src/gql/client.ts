@@ -22,15 +22,20 @@ export const IContentInfoFragmentDoc = /*#__PURE__*/ gql`
 }
     `;
 export const IContentDataFragmentDoc = /*#__PURE__*/ gql`
-    fragment IContentData on IContent {
+    fragment IContentData on _IContent {
   _metadata {
     ...IContentInfo
   }
   _type: __typename
 }
     `;
+export const IContentListItemFragmentDoc = /*#__PURE__*/ gql`
+    fragment IContentListItem on _IContent {
+  ...IContentData
+}
+    `;
 export const IElementDataFragmentDoc = /*#__PURE__*/ gql`
-    fragment IElementData on IElement {
+    fragment IElementData on _IElement {
   _metadata {
     ...IContentInfo
   }
@@ -87,7 +92,7 @@ export const TestimonialElementDataFragmentDoc = /*#__PURE__*/ gql`
 }
     `;
 export const ElementDataFragmentDoc = /*#__PURE__*/ gql`
-    fragment ElementData on IElement {
+    fragment ElementData on _IElement {
   ...IElementData
   ...CTAElementData
   ...HeadingElementData
@@ -99,7 +104,7 @@ export const ElementDataFragmentDoc = /*#__PURE__*/ gql`
 export const CompositionDataFragmentDoc = /*#__PURE__*/ gql`
     fragment CompositionData on ICompositionNode {
   name: displayName
-  layoutType
+  layoutType: nodeType
   type
   key
   template: displayTemplateKey
@@ -120,13 +125,9 @@ export const CompositionDataFragmentDoc = /*#__PURE__*/ gql`
 }
     `;
 export const ExperienceDataFragmentDoc = /*#__PURE__*/ gql`
-    fragment ExperienceData on IExperience {
-  experience: _metadata {
-    ... on CompositionMetadata {
-      composition {
-        ...CompositionData
-      }
-    }
+    fragment ExperienceData on _IExperience {
+  composition {
+    ...CompositionData
   }
 }
     `;
@@ -136,14 +137,9 @@ export const BlankExperienceDataFragmentDoc = /*#__PURE__*/ gql`
 }
     `;
 export const PageDataFragmentDoc = /*#__PURE__*/ gql`
-    fragment PageData on IContent {
+    fragment PageData on _IContent {
   ...IContentData
   ...BlankExperienceData
-}
-    `;
-export const IContentListItemFragmentDoc = /*#__PURE__*/ gql`
-    fragment IContentListItem on IContent {
-  ...IContentData
 }
     `;
 export const ButtonBlockDataFragmentDoc = /*#__PURE__*/ gql`
@@ -221,7 +217,7 @@ export const MegaMenuGroupBlockDataFragmentDoc = /*#__PURE__*/ gql`
 }
     `;
 export const BlockDataFragmentDoc = /*#__PURE__*/ gql`
-    fragment BlockData on IContent {
+    fragment BlockData on _IContent {
   ...IContentData
   ...ButtonBlockData
   ...CardBlockData
@@ -249,9 +245,24 @@ export const OfficeLocationDataFragmentDoc = /*#__PURE__*/ gql`
   email: OfficeEmail
 }
     `;
+export const getContentTypeDocument = /*#__PURE__*/ gql`
+    query getContentType($key: String!, $version: String, $locale: [Locales!], $path: String, $domain: String) {
+  content: _Content(
+    where: {_or: [{_metadata: {key: {eq: $key}, version: {eq: $version}}}, {_metadata: {url: {hierarchical: {eq: $path}, base: {eq: $domain}}, version: {eq: $version}}}]}
+    locale: $locale
+  ) {
+    total
+    items {
+      _metadata {
+        types
+      }
+    }
+  }
+}
+    `;
 export const getContentByIdDocument = /*#__PURE__*/ gql`
     query getContentById($key: String!, $version: String, $locale: [Locales!], $path: String, $domain: String) {
-  content: Content(
+  content: _Content(
     where: {_or: [{_metadata: {key: {eq: $key}, version: {eq: $version}}}, {_metadata: {url: {hierarchical: {eq: $path}, base: {eq: $domain}}, version: {eq: $version}}}]}
     locale: $locale
   ) {
@@ -284,24 +295,9 @@ ${HeadingElementDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
 ${ParagraphElementDataFragmentDoc}
 ${TestimonialElementDataFragmentDoc}`;
-export const getContentTypeDocument = /*#__PURE__*/ gql`
-    query getContentType($key: String!, $version: String, $locale: [Locales!], $path: String, $domain: String) {
-  content: Content(
-    where: {_or: [{_metadata: {key: {eq: $key}, version: {eq: $version}}}, {_metadata: {url: {hierarchical: {eq: $path}, base: {eq: $domain}}, version: {eq: $version}}}]}
-    locale: $locale
-  ) {
-    total
-    items {
-      _metadata {
-        types
-      }
-    }
-  }
-}
-    `;
 export const getContentByPathDocument = /*#__PURE__*/ gql`
     query getContentByPath($path: String!, $version: String, $locale: [Locales!], $domain: String) {
-  content: Content(
+  content: _Content(
     where: {_metadata: {url: {default: {eq: $path}, base: {eq: $domain}}, version: {eq: $version}}}
     locale: $locale
   ) {
@@ -425,11 +421,11 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    getContentById(variables: Schema.getContentByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getContentByIdQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getContentByIdQuery>(getContentByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getContentById', 'query', variables);
-    },
     getContentType(variables: Schema.getContentTypeQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getContentTypeQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getContentTypeQuery>(getContentTypeDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getContentType', 'query', variables);
+    },
+    getContentById(variables: Schema.getContentByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getContentByIdQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getContentByIdQuery>(getContentByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getContentById', 'query', variables);
     },
     getContentByPath(variables: Schema.getContentByPathQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getContentByPathQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getContentByPathQuery>(getContentByPathDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getContentByPath', 'query', variables);

@@ -5,10 +5,10 @@ export const VisualBuilderNode : CmsLayoutComponent = ({ contentLink, layoutProp
 {
     let className = ''
     switch (layoutProps?.layoutType ?? '') {
-        case "outline":
+        case "experience":
             className = 'relative w-full flex-1 vb:outline'
             break;
-        case "grid":
+        case "section":
             className = 'relative w-full flex flex-col flex-nowrap justify-start vb:grid'
             break;
         case "row":
@@ -21,7 +21,7 @@ export const VisualBuilderNode : CmsLayoutComponent = ({ contentLink, layoutProp
             className = `vb:${layoutProps?.layoutType}`
             break;
     }
-    if (layoutProps && layoutProps.layoutType == "grid")
+    if (layoutProps && layoutProps.layoutType == "section")
         return <CmsEditable as="div" className={ className } cmsId={ contentLink.key }>{ children }</CmsEditable>
     return <div className={ className }>{ children }</div>
 }
