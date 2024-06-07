@@ -5,7 +5,8 @@
   "license": "ISC",
   "packageManager": "yarn@4.1.1",
   "scripts": {
-    "dev": "yarn next dev -p 3002",
+    "dev:http": "yarn next dev -p 3002",
+    "dev": "yarn next dev --experimental-https -p 3002",
     "build": "yarn next build && yarn opti-graph webhook:create",
     "build:full": "yarn graphql-codegen && yarn next build && yarn opti-graph webhook:create",
     "start": "next start",
