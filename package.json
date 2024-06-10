@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "author": "Episerver AB",
   "license": "ISC",
-  "packageManager": "yarn@4.1.1",
+  "packageManager": "yarn@4.2.2",
   "scripts": {
     "dev:http": "yarn next dev -p 3002",
     "dev": "yarn next dev --experimental-https -p 3002",
