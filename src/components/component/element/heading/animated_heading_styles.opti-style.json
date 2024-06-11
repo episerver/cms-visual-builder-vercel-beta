@@ -32,13 +32,76 @@
                 "h6": {
                     "displayName": "Heading 6",
                     "sortOrder": 60
+                },
+                "plain": {
+                    "displayName": "Plain text",
+                    "sortOrder": 250
+                }
+            }
+        },
+        "textAlign": {
+            "displayName": "Text align",
+            "editor": "selectOne",
+            "sortOrder": 20,
+            "choices": {
+                "left": {
+                    "displayName": "Left",
+                    "sortOrder": 10
+                },
+                "center": {
+                    "displayName": "Center",
+                    "sortOrder": 20
+                },
+                "right": {
+                    "displayName": "Right",
+                    "sortOrder": 30
+                },
+                "justify": {
+                    "displayName": "Justify",
+                    "sortOrder": 40
+                }
+            }
+        },
+        "showAs": {
+            "displayName": "Render as",
+            "sortOrder": 30,
+            "choices": {
+                "heading": {
+                    "displayName": "Heading element",
+                    "sortOrder": 10
+                },
+                "element": {
+                    "displayName": "Basic element",
+                    "sortOrder": 20
+                }
+            }
+        },
+        "transform": {
+            "displayName": "Text transform",
+            "sortOrder": 40,
+            "choices": {
+                "keep": {
+                    "displayName": "As entered",
+                    "sortOrder": 10
+                },
+                "uppercase": {
+                    "displayName": "Uppercase",
+                    "sortOrder": 20
+                },
+                "lowercase": {
+                    "displayName": "Lowercase",
+                    "sortOrder": 30
+                },
+                "capitalize": {
+                    "displayName": "Capitalize",
+                    "sortOrder": 40
                 }
             }
         },
         "delay": {
             "displayName": "Animation delay",
             "editor": "selectOne",
-            "sortOrder": 20,
+            "sortOrder": 130,
             "choices": {
                 "none": {
                     "displayName": "None",
@@ -55,6 +118,10 @@
                 "long": {
                     "displayName": "Long (1.5s)",
                     "sortOrder": 40
+                },
+                "verylong": {
+                    "displayName": "Very Long (2s)",
+                    "sortOrder": 50
                 }
             }
         }

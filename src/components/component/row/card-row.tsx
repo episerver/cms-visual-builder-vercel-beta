@@ -1,11 +1,17 @@
 import { type CmsLayoutComponent } from "@remkoj/optimizely-cms-react"
+import type CardRowLayoutProps from './card.row.opti-style.json'
+import { extractSettings, type LayoutProps } from "@remkoj/optimizely-cms-react/components"
 
-export const CardRow : CmsLayoutComponent = ({ layoutProps, children }) => {
+
+export const CardRow : CmsLayoutComponent<LayoutProps<typeof CardRowLayoutProps>> = ({ layoutProps, children }) => {
     const additionalClasses: string[] = [];
-    const innerClasses: string[] = [];
-    const button: { className: string } = {className: ""}
-    const color = layoutProps?.settings?.filter((x: {key: string, value: string}) => x.key == 'rowBackgroundColor')[0]?.value
-    const colOrder = layoutProps?.settings?.filter((x: {key: string, value: string}) => x.key == 'columnOrderOnSmallScreen')[0]?.value
+    const innerClasses: string[] = ['prose prose-p:text-[2rem] prose-span:text-[2rem]'];
+    const {
+        rowBackgroundColor: color = "white",
+        columnOrderOnSmallScreen: colOrder = "normal",
+        vSpacing = "small"
+    } = extractSettings(layoutProps)
+
     switch (color) {
         case "white":
             additionalClasses.push("bg-ghost-white border-[2px]");
@@ -14,32 +20,26 @@ export const CardRow : CmsLayoutComponent = ({ layoutProps, children }) => {
         case "blue":
             additionalClasses.push("bg-azure dark:bg-transparent dark:border-azure dark:border-4");
             innerClasses.push("text-white prose-h3:text-white prose-h2:text-white ");
-            if (button) button.className = "btn--light";
             break;
-        case "dark-blue":
-            additionalClasses.push("bg-vulcan ");
+        case "dark_blue":
+            additionalClasses.push("bg-vulcan");
             innerClasses.push("text-white prose-h3:text-white prose-h2:text-white");
-            if (button) button.className = "btn--light";
             break;
         case "orange":
             additionalClasses.push("bg-tangy dark:bg-transparent dark:border-tangy dark:border-4");
             innerClasses.push("text-vulcan prose-h3:text-vulcan prose-h2:text-vulcan");
-            if (button) button.className = "btn--dark";
             break;
         case "green":
             additionalClasses.push("bg-verdansk dark:bg-transparent dark:border-verdansk dark:border-4");
             innerClasses.push("text-vulcan prose-h3:text-vulcan prose-h2:text-vulcan");
-            if (button) button.className = "btn--dark";
             break;
         case "red":
             additionalClasses.push("bg-paleruby dark:bg-transparent dark:border-paleruby dark:border-4");
             innerClasses.push("text-white prose-h3:text-white prose-h2:text-white");
-            if (button) button.className = "btn--light";
             break;
         case "purple":
-            additionalClasses.push("bg-people-eater");
+            additionalClasses.push("bg-people-eater dark:bg-transparent dark:border-people-eater dark:border-4");
             innerClasses.push("text-white prose-h3:text-white prose-h2:text-white");
-            if (button) button.className = "btn--light";
             break;
     }
 
@@ -52,8 +52,23 @@ export const CardRow : CmsLayoutComponent = ({ layoutProps, children }) => {
             break;
     }
 
-    return <div className={`flex-1 mt-16 mb-16 relative p-12 lg:p-24 rounded-[40px] @container/card vb:row ${ additionalClasses.join(' ')}`}>
-        <div className={ `flex ${ innerClasses.join(' ') } flex-nowrap justify-start gap-16` }>
+    switch (vSpacing) {
+        case "small":
+            additionalClasses.push("my-2")
+            break;
+        case "medium":
+            additionalClasses.push("my-4")
+            break;
+        case "large":
+            additionalClasses.push("my-8")
+            break;
+        default:
+            additionalClasses.push("my-0")
+            break;
+    }
+
+    return <div className={`flex-1 relative p-12 lg:p-24 rounded-[40px] @container/card vb:row ${ additionalClasses.join(' ')}`}>
+        <div className={ `flex ${ innerClasses.join(' ') } flex-nowrap justify-stretch gap-16 w-full max-w-none` }>
             { children }
         </div>
     </div>

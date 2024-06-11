@@ -1,28 +1,39 @@
 import { CmsLayoutComponent } from "@remkoj/optimizely-cms-react"
-import { CmsEditable } from '@/components/CmsEditableRSC'
+import { CmsEditable } from '@remkoj/optimizely-cms-react/rsc'
+import type DefaultGridStyles from './default.grid.opti-style.json'
+import { type LayoutProps, extractSettings } from "@remkoj/optimizely-cms-react/components"
 
-type LayoutSettings = Array<{ key: string, value: string }>
+type DefaultGridLayout = LayoutProps<typeof DefaultGridStyles>
 
-export const DefaultGridComponent : CmsLayoutComponent = ({ contentLink, layoutProps, children }) =>
+export const DefaultGridComponent : CmsLayoutComponent<DefaultGridLayout> = ({ contentLink, layoutProps, children }) =>
 {
-    const settings = layoutProps?.settings as LayoutSettings | undefined
     let className = undefined
-    const width = settings?.filter(x => x.key == "gridWidth")[0]?.value
-    switch (width) {
+    const { 
+        gridWidth = "default",
+        vSpacing = "default"
+    } = extractSettings(layoutProps)
+
+    switch (gridWidth) {
         case 'default':
-            className = "container mx-auto"
+            className = "container mx-auto px-8"
             break
         case 'full':
             className = "w-full"
             break;
         case 'narrow':
-            className = "max-w-3xl w-full mx-auto"
+            className = "max-w-3xl w-full mx-auto px-8"
             break;
         case 'wide':
-            className = "max-w-7xl w-full mx-auto"
+            className = "max-w-7xl w-full mx-auto px-8"
             break;
-        default:
-            // Do nothing
+    }
+
+    switch (vSpacing) {
+        case 'small':
+            className = className + " py-4 md:py-8 lg:py-12"
+            break
+        case 'large':
+            className = className + " py-8 md:py-16 lg:py-24"
             break
     }
     

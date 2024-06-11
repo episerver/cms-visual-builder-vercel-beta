@@ -7,7 +7,7 @@ import { contentLinkToString } from "@remkoj/optimizely-graph-client/utils";
 import { type Schema } from "@/gql"
 import { linkDataToUrl } from '@/components/shared/cms_link'
 import { CmsImage } from '@/components/shared/cms_image'
-import { RichText } from '@/components/StructuredHtml'
+import { RichText } from '@remkoj/optimizely-cms-react/components'
 
 type ContentLinkArg = Parameters<typeof contentLinkToString>[0]
 

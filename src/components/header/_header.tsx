@@ -70,7 +70,7 @@ export default function Header({ menuItems, utilityItems, logoItem, labels = {} 
   return (
     <HeaderContext.Provider value={headerContext}>
       <header
-        className="outer-padding bg-ghost-white"
+        className="outer-padding bg-ghost-white text-vulcan"
         onMouseLeave={handleMouseLeave}
         onMouseEnter={handleMouseEnter}
         onBlur={handleFocusLeave}

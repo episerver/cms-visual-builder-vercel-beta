@@ -31,9 +31,9 @@ const documents = {
     "fragment ButtonBlockData on ButtonBlock {\n  text\n  link {\n    ...LinkData\n  }\n  className\n  buttonType\n  variant\n}": types.ButtonBlockDataFragmentDoc,
     "fragment ButtonBlockPropertyData on ButtonBlockProperty {\n  text\n  link {\n    ...LinkData\n  }\n  className\n  buttonType\n  variant\n}": types.ButtonBlockPropertyDataFragmentDoc,
     "fragment CardBlockData on CardBlock {\n  heading: CardHeading\n  subheading: CardSubheading\n  description: CardDescription {\n    json\n  }\n  icon: CardIcon {\n    ...ReferenceData\n  }\n  image: CardImage {\n    ...ReferenceData\n  }\n  link: CardButton {\n    ...ButtonBlockPropertyData\n  }\n  color: CardColor\n  layout: CardImageLayout\n}": types.CardBlockDataFragmentDoc,
-    "fragment CTAElementData on CTAElement {\n    text: Text\n    link: Link {\n        ...LinkData\n    }\n}": types.CTAElementDataFragmentDoc,
-    "fragment HeadingElementData on HeadingElement {\n    headingText\n}": types.HeadingElementDataFragmentDoc,
-    "fragment ImageElementData on ImageElement {\n    altText\n    imageLink {\n        ...ReferenceData\n    }\n}": types.ImageElementDataFragmentDoc,
+    "fragment CTAElementData on CTAElement {\n  text: Text\n  link: Link {\n    ...LinkData\n  }\n}": types.CTAElementDataFragmentDoc,
+    "fragment HeadingElementData on HeadingElement {\n  headingText\n}": types.HeadingElementDataFragmentDoc,
+    "fragment ImageElementData on ImageElement {\n  altText\n  imageLink {\n    ...ReferenceData\n  }\n}": types.ImageElementDataFragmentDoc,
     "fragment ParagraphElementData on ParagraphElement {\n    paragraph: text {\n        json\n    }\n}": types.ParagraphElementDataFragmentDoc,
     "fragment TestimonialElementData on TestimonialElement {\n  referenceTitle\n  referenceText {\n    json\n  }\n  customerName\n  customerLocation\n  customerImage {\n    ...ReferenceData\n  }\n}": types.TestimonialElementDataFragmentDoc,
     "query getFooter {\n  footer: WebsiteFooter {\n    total\n    items {\n      address: FooterMainOfficeLocation {\n        ...OfficeLocationData\n      }\n      firstMenu: FooterFirstLinkList {\n        ...MenuContent\n      }\n      secondMenu: FooterSecondLinkList {\n        ...MenuContent\n      }\n      thirdMenu: FooterThirdLinkList {\n        ...MenuContent\n      }\n      logo: FooterLogo {\n        ...ReferenceData\n      }\n      logoAlt: FooterLogoAltText\n      legal: FooterLegalLinks {\n        ...LinkItemData\n      }\n    }\n  }\n}\n\nfragment MenuContent on NavigationMenuBlockProperty {\n  heading: MenuNavigationHeading\n  links: NavigationLinks {\n    ...LinkItemData\n  }\n}\n\nfragment OfficeLocationData on OfficeLocation {\n  title: OfficeTitle\n  street1: OfficeAddressStreet1\n  street2: OfficeAddressStreet2\n  postalcode: OfficeAddressPostalCode\n  city: OfficeAddressCity\n  country: OfficeAddressCountry\n  phone: OfficePhone\n  email: OfficeEmail\n}": types.getFooterDocument,
@@ -134,15 +134,15 @@ export function gql(source: "fragment CardBlockData on CardBlock {\n  heading: C
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "fragment CTAElementData on CTAElement {\n    text: Text\n    link: Link {\n        ...LinkData\n    }\n}"): (typeof documents)["fragment CTAElementData on CTAElement {\n    text: Text\n    link: Link {\n        ...LinkData\n    }\n}"];
+export function gql(source: "fragment CTAElementData on CTAElement {\n  text: Text\n  link: Link {\n    ...LinkData\n  }\n}"): (typeof documents)["fragment CTAElementData on CTAElement {\n  text: Text\n  link: Link {\n    ...LinkData\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "fragment HeadingElementData on HeadingElement {\n    headingText\n}"): (typeof documents)["fragment HeadingElementData on HeadingElement {\n    headingText\n}"];
+export function gql(source: "fragment HeadingElementData on HeadingElement {\n  headingText\n}"): (typeof documents)["fragment HeadingElementData on HeadingElement {\n  headingText\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "fragment ImageElementData on ImageElement {\n    altText\n    imageLink {\n        ...ReferenceData\n    }\n}"): (typeof documents)["fragment ImageElementData on ImageElement {\n    altText\n    imageLink {\n        ...ReferenceData\n    }\n}"];
+export function gql(source: "fragment ImageElementData on ImageElement {\n  altText\n  imageLink {\n    ...ReferenceData\n  }\n}"): (typeof documents)["fragment ImageElementData on ImageElement {\n  altText\n  imageLink {\n    ...ReferenceData\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

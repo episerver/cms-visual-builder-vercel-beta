@@ -1,0 +1,48 @@
+{
+    "key": "IconImageElement",
+    "displayName": "Icon",
+    "contentType": "ImageElement",
+    "isDefault": false,
+    "settings": {
+        "size": {
+            "displayName": "Size",
+            "sortOrder": 10,
+            "choices": {
+                "small": {
+                    "displayName": "Small",
+                    "sortOrder": 10
+                },
+                "medium": {
+                    "displayName": "Medium",
+                    "sortOrder": 20
+                },
+                "large": {
+                    "displayName": "Large",
+                    "sortOrder": 30
+                }
+            }
+        },
+        "roundedCorners": {
+            "displayName": "Rounded corners",
+            "sortOrder": 20,
+            "choices": {
+                "none": {
+                    "displayName": "None",
+                    "sortOrder": 10
+                },
+                "small": {
+                    "displayName": "Small",
+                    "sortOrder": 20
+                },
+                "medium": {
+                    "displayName": "Medium",
+                    "sortOrder": 30
+                },
+                "full": {
+                    "displayName": "Full",
+                    "sortOrder": 60
+                }
+            }
+        }
+    }
+}

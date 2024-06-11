@@ -2,7 +2,7 @@ import { type PropsWithChildren } from 'react'
 import { OnPageEdit } from '@remkoj/optimizely-cms-nextjs'
 import createFactory from '@/components'
 import { getAuthorizedServerClient } from '@remkoj/optimizely-cms-nextjs'
-import { getContentById } from '@/gql'
+import { getContentById } from '@/gql/functions'
 import { RectangleGroupIcon } from '@heroicons/react/24/solid'
 
 function LoadingOverlay({ children }: PropsWithChildren<{}>) {
@@ -16,12 +16,12 @@ function LoadingOverlay({ children }: PropsWithChildren<{}>) {
 }
 
 const EditPage = OnPageEdit.createEditPageComponent(createFactory(), {
-    //@ts-expect-error Injecting a function with the actual types from Optimizely Graph over a method with just placeholders
+    //@ts-expect-error
     loader: getContentById,
     refreshNotice: LoadingOverlay,
-    clientFactory: (token) => {
+    clientFactory: (token?: string) => {
         const client = getAuthorizedServerClient(token)
-        client.updateFlags({ queryCache: false })
+        client.updateFlags({ queryCache: false, cache: false })
         return client
     }
 })

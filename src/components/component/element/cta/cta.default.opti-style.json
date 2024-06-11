@@ -1,0 +1,67 @@
+{
+    "key": "CTAElementDefaultStyles",
+    "displayName": "Default",
+    "contentType": "CTAElement",
+    "isDefault": true,
+    "settings": {
+        "buttonType": {
+            "displayName": "Button Type",
+            "sortOrder": 10,
+            "choices": {
+                "primary": {
+                    "displayName": "Primary",
+                    "sortOrder": 10
+                },
+                "secondary": {
+                    "displayName": "Secondary",
+                    "sortOrder": 20
+                },
+                "link": {
+                    "displayName": "Link",
+                    "sortOrder": 30
+                }
+            }
+        },
+        "buttonColor": {
+            "displayName": "Button color",
+            "sortOrder": 10,
+            "choices": {
+                "default": {
+                    "displayName": "Default",
+                    "sortOrder": 10
+                },
+                "light": {
+                    "displayName": "Light",
+                    "sortOrder": 20
+                },
+                "dark": {
+                    "displayName": "Dark",
+                    "sortOrder": 30
+                }
+            }
+        },
+        "buttonAlign": {
+            "displayName": "Align button",
+            "editor": "selectOne",
+            "sortOrder": 20,
+            "choices": {
+                "auto": {
+                    "displayName": "Auto",
+                    "sortOrder": 10
+                },
+                "left": {
+                    "displayName": "Left",
+                    "sortOrder": 20
+                },
+                "center": {
+                    "displayName": "Center",
+                    "sortOrder": 30
+                },
+                "right": {
+                    "displayName": "Right",
+                    "sortOrder": 40
+                }
+            }
+        }
+    }
+}

@@ -2,8 +2,8 @@ import { gql, type Schema } from '@/gql'
 import { type CmsComponent } from '@remkoj/optimizely-cms-react'
 import { getServerContext, getFactory } from '@remkoj/optimizely-cms-react/rsc'
 
-import { RichText } from '@/components/StructuredHtml'
-import { CmsEditable } from '@/components/CmsEditableRSC'
+import { RichText } from '@remkoj/optimizely-cms-react/components'
+import { CmsEditable } from '@remkoj/optimizely-cms-react/rsc'
 
 export const ParagraphElement : CmsComponent<Schema.ParagraphElementDataFragment> = ({ data: { paragraph }, contentLink, inEditMode }) =>
 {

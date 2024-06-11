@@ -1,0 +1,6 @@
+fragment CTAElementData on CTAElement {
+    text: Text
+    link: Link {
+        ...LinkData
+    }
+}

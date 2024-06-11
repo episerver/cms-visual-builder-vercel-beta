@@ -4,7 +4,7 @@
     "nodeType": "column",
     "isDefault": false,
     "settings": {
-        "rowBackgroundColor": {
+        "colBackgroundColor": {
             "displayName": "Background color",
             "sortOrder": 10,
             "choices": {
