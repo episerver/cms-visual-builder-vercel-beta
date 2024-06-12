@@ -1,42 +1,15 @@
 "use client";
 
-import Link from "next/link";
 import { useContext, useMemo, useId, type FunctionComponent } from "react";
 import { HeaderContext } from "../_header";
 import { contentLinkToString } from "@remkoj/optimizely-graph-client/utils";
 import { type Schema } from "@/gql"
-import { linkDataToUrl } from '@/components/shared/cms_link'
-import { CmsImage } from '@/components/shared/cms_image'
-import { RichText } from '@remkoj/optimizely-cms-react/components'
-import { CmsLink } from '@/components/shared/cms_link'
+import dynamic from 'next/dynamic'
 
 type ContentLinkArg = Parameters<typeof contentLinkToString>[0]
-
-type PromoItemProps = Schema.CardBlockDataFragment
 type DropdownMenuProps = Schema.MegaMenuGroupBlockDataFragment & Omit<JSX.IntrinsicElements['li'], 'className' | 'onMouseOver' | 'onFocus'>
-type MenuItemProps = {
-    menuList: Schema.NavigationMenuBlockDataFragment | Schema.CardBlockDataFragment
-} & JSX.IntrinsicElements['div']
 
-const MenuItem : FunctionComponent<MenuItemProps> = ({ menuList, ...props }) => {
-    if (menuList.__typename === "NavigationMenuBlock") {
-        return <div {...props}>
-            {menuList.title && <h3 className="text-[16px] font-semibold uppercase tracking-[1px]">{ menuList.title }</h3> }
-            {menuList.items && (
-            <ul className="grid gap-5">
-                {menuList.items.map((menuItem: any) => {
-                    return <li key={menuItem.text}>
-                        <CmsLink className="hover:text-azure focus:text-azure" href={menuItem} />
-                    </li>
-                })}
-            </ul>
-            )}
-        </div>
-    }
-    if (menuList.__typename === "CardBlock") {
-        return <div className="col-span-2 flex justify-end"><PromoItem {...menuList} /></div>
-    }
-}
+const MenuItem = dynamic(() => import('./_menu-item'), { ssr: false })
 
 /**
  * Renders a dropdown menu with the specified menu name.
@@ -79,27 +52,6 @@ const DropdownMenu : FunctionComponent<DropdownMenuProps> = ({ menuName, menuDat
   );
 }
 
-const PromoItem : FunctionComponent<PromoItemProps> = ({ heading, description, link, image }) => {
-  const linkUrl = linkDataToUrl((link as Schema.ButtonBlockPropertyDataFragment)?.link)
-  const linkTitle = (link as Schema.ButtonBlockPropertyDataFragment).text
-  return (
-    <article className="grid grid-cols-2 gap-12 max-w-[500px] bg-white rounded-[20px] p-12">
-      <div className="prose">
-        {heading && <h3 className="mb-4 leading-[1.5]">{heading}</h3>}
-        {description && <RichText className="leading-[1.5]" text={ description.json } />}
-        {linkUrl && linkTitle && (
-          <Link className="link--arrow" href={ linkUrl.href }>
-            { linkTitle }
-          </Link>
-        )}
-      </div>
-      <div>
-        {image && (<CmsImage className="w-full rounded-[20px]" alt="" src={ image as Schema.ReferenceDataFragment } width={207} height={232} />
-        )}
-      </div>
-    </article>
-  );
-}
 
 export const MainMenu : FunctionComponent<{}> = () => {
     const { menuItems } = useContext(HeaderContext)
