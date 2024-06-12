@@ -16,10 +16,12 @@ const nextConfig = {
     },
 };
 
+/**
 console.log(' 🚀 Site configuration')
 nextConfig.images.remotePatterns.forEach(pattern => {
   console.log(`  - White-listing images matching: ${ pattern.protocol }://${ pattern.hostname }${ pattern.port ? ':' + pattern.port : '' }${ pattern.pathname }`)
 })
 console.log('')
+*/
 
 export default nextConfig;

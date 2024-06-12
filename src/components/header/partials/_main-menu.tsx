@@ -1,43 +1,41 @@
 "use client";
 
 import Link from "next/link";
-import { useContext, useMemo, useId, ComponentProps } from "react";
+import { useContext, useMemo, useId, type FunctionComponent } from "react";
 import { HeaderContext } from "../_header";
 import { contentLinkToString } from "@remkoj/optimizely-graph-client/utils";
 import { type Schema } from "@/gql"
 import { linkDataToUrl } from '@/components/shared/cms_link'
 import { CmsImage } from '@/components/shared/cms_image'
 import { RichText } from '@remkoj/optimizely-cms-react/components'
+import { CmsLink } from '@/components/shared/cms_link'
 
 type ContentLinkArg = Parameters<typeof contentLinkToString>[0]
 
-function MenuItem({ menuList, ...props }: { menuList: Schema.NavigationMenuBlockDataFragment | Schema.CardBlockDataFragment } & ComponentProps<"div">) {
+type PromoItemProps = Schema.CardBlockDataFragment
+type DropdownMenuProps = Schema.MegaMenuGroupBlockDataFragment & Omit<JSX.IntrinsicElements['li'], 'className' | 'onMouseOver' | 'onFocus'>
+type MenuItemProps = {
+    menuList: Schema.NavigationMenuBlockDataFragment | Schema.CardBlockDataFragment
+} & JSX.IntrinsicElements['div']
+
+const MenuItem : FunctionComponent<MenuItemProps> = ({ menuList, ...props }) => {
     if (menuList.__typename === "NavigationMenuBlock") {
         return <div {...props}>
             {menuList.title && <h3 className="text-[16px] font-semibold uppercase tracking-[1px]">{ menuList.title }</h3> }
             {menuList.items && (
             <ul className="grid gap-5">
-                {menuList.items.map((menuItem: any) => (
-                    <li key={menuItem.text}>
-                        <Link
-                            className="hover:text-azure focus:text-azure"
-                            href={menuItem.url}
-                        >
-                            {menuItem.text}
-                        </Link>
+                {menuList.items.map((menuItem: any) => {
+                    return <li key={menuItem.text}>
+                        <CmsLink className="hover:text-azure focus:text-azure" href={menuItem} />
                     </li>
-                ))}
+                })}
             </ul>
             )}
         </div>
     }
     if (menuList.__typename === "CardBlock") {
-    return (
-      <div className="col-span-2 flex justify-end">
-        <PromoItem {...menuList} />
-      </div>
-    );
-  }
+        return <div className="col-span-2 flex justify-end"><PromoItem {...menuList} /></div>
+    }
 }
 
 /**
@@ -46,7 +44,7 @@ function MenuItem({ menuList, ...props }: { menuList: Schema.NavigationMenuBlock
  * @param menuName - The name of the dropdown menu
  * @return The rendered dropdown menu
  */
-function DropdownMenu({ menuName, menuData = [], menuLink, ...props }: Schema.MegaMenuGroupBlockDataFragment) : JSX.Element {
+const DropdownMenu : FunctionComponent<DropdownMenuProps> = ({ menuName, menuData = [], menuLink, ...props }) => {
   const { currentMenu, setCurrentMenu } = useContext(HeaderContext);
   const gridColumnClass = useMemo(() => {
     let columns = (menuData?.length ?? 0) + (menuData?.filter(itm => itm?.__typename == "CardBlock")?.length ?? 0)
@@ -81,10 +79,9 @@ function DropdownMenu({ menuName, menuData = [], menuLink, ...props }: Schema.Me
   );
 }
 
-function PromoItem({ heading, description, link, image }: Schema.CardBlockDataFragment) {
+const PromoItem : FunctionComponent<PromoItemProps> = ({ heading, description, link, image }) => {
   const linkUrl = linkDataToUrl((link as Schema.ButtonBlockPropertyDataFragment)?.link)
   const linkTitle = (link as Schema.ButtonBlockPropertyDataFragment).text
-  console.log(linkUrl, linkTitle)
   return (
     <article className="grid grid-cols-2 gap-12 max-w-[500px] bg-white rounded-[20px] p-12">
       <div className="prose">
@@ -104,7 +101,7 @@ function PromoItem({ heading, description, link, image }: Schema.CardBlockDataFr
   );
 }
 
-export default function MainMenu() {
+export const MainMenu : FunctionComponent<{}> = () => {
     const { menuItems } = useContext(HeaderContext)
     const id = useId()
     return <ul className="flex justify-between items-center">
@@ -114,3 +111,5 @@ export default function MainMenu() {
         })}
     </ul>
 }
+
+export default MainMenu
