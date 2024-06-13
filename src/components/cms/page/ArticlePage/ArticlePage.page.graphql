@@ -1,0 +1,3 @@
+fragment ArticlePageData on ArticlePage {
+  ArticleTitle
+}

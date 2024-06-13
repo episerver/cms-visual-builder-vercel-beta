@@ -1,0 +1,4 @@
+fragment ArticleGroupPageData on ArticleGroupPage {
+  MainContent { ...BlockData }
+  LandingPageSeoSettings { ...PageSeoSettingsPropertyData }
+}

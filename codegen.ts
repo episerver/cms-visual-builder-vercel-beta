@@ -65,6 +65,11 @@ const config: CodegenConfig = {
             },
             {
                 // Add all block fragments from GraphQL files
+                into: "BlockData",
+                pathRegex: "\.component\.graphql$"
+            },
+            {
+                // Add all block fragments from GraphQL files
                 into: "PageData",
                 pathRegex: "\.page\.graphql$"
             },
