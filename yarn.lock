@@ -905,15 +905,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/add@npm:^5.0.2":
-  version: 5.0.2
-  resolution: "@graphql-codegen/add@npm:5.0.2"
+"@graphql-codegen/add@npm:^5.0.2, @graphql-codegen/add@npm:^5.0.3":
+  version: 5.0.3
+  resolution: "@graphql-codegen/add@npm:5.0.3"
   dependencies:
     "@graphql-codegen/plugin-helpers": "npm:^5.0.3"
     tslib: "npm:~2.6.0"
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 10/60f32609d9e97ca2c48dc6fc4ff212c5e600e02c1cd583448a4fea01b9d24a9c75e70691ae56aabdd3d4c1e918825c8d813705300ca68047046f3a8cddc0c0c8
+  checksum: 10/5e4ea9b5d76e6f472015185d0d007abf38ba7b27fb613b163ef1ca6c732695951111721896ee36894d098b27a67c55a84d000b503db93b9d9e6713e34d2fa5a6
   languageName: node
   linkType: hard
 
@@ -971,13 +971,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/client-preset@npm:^4.2.2, @graphql-codegen/client-preset@npm:^4.2.6":
-  version: 4.2.6
-  resolution: "@graphql-codegen/client-preset@npm:4.2.6"
+"@graphql-codegen/client-preset@npm:^4.2.2, @graphql-codegen/client-preset@npm:^4.2.6, @graphql-codegen/client-preset@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "@graphql-codegen/client-preset@npm:4.3.0"
   dependencies:
     "@babel/helper-plugin-utils": "npm:^7.20.2"
     "@babel/template": "npm:^7.20.7"
-    "@graphql-codegen/add": "npm:^5.0.2"
+    "@graphql-codegen/add": "npm:^5.0.3"
     "@graphql-codegen/gql-tag-operations": "npm:4.0.7"
     "@graphql-codegen/plugin-helpers": "npm:^5.0.4"
     "@graphql-codegen/typed-document-node": "npm:^5.0.7"
@@ -990,7 +990,7 @@ __metadata:
     tslib: "npm:~2.6.0"
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 10/790e415bf9509dfcaf8231436e112d662e8995307891a626b23da20c8dbec5a1cf1e164edf270025bdafcf029f97e2b91cae3684e06ecdfa6260563e50eab95e
+  checksum: 10/34ccb36565e77b15c12c998f2f6d2c368710a78d2d0d1b7e9a039d1a01d8a84e78413076906a88617464efb646be914f9bbb839190ca98a9bfdddaf387dcdb54
   languageName: node
   linkType: hard
 
@@ -4274,7 +4274,7 @@ __metadata:
     "@emotion/is-prop-valid": "npm:^1.2.2"
     "@formatjs/intl-localematcher": "npm:^0.5.4"
     "@graphql-codegen/cli": "npm:^5.0.2"
-    "@graphql-codegen/client-preset": "npm:^4.2.6"
+    "@graphql-codegen/client-preset": "npm:^4.3.0"
     "@graphql-typed-document-node/core": "npm:^3.2.0"
     "@headlessui/react": "npm:^2.0.4"
     "@heroicons/react": "npm:^2.1.3"
