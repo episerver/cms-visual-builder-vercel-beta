@@ -6,7 +6,6 @@
     "settings": {
         "gridWidth": {
             "displayName": "Width",
-            "editor": "selectOne",
             "sortOrder": 10,
             "choices": {
                 "default": {
@@ -24,6 +23,24 @@
                 "narrow": {
                     "displayName": "Narrow",
                     "sortOrder": 40
+                }
+            }
+        },
+        "vSpacing": {
+            "displayName": "Vertical spacing",
+            "sortOrder": 20,
+            "choices": {
+                "default": {
+                    "displayName": "Default",
+                    "sortOrder": 10
+                },
+                "small": {
+                    "displayName": "Small",
+                    "sortOrder": 20
+                },
+                "large": {
+                    "displayName": "Large",
+                    "sortOrder": 30
                 }
             }
         }

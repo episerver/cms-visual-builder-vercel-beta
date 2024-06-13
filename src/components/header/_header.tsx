@@ -4,10 +4,12 @@ import { createContext, useRef, useState } from "react";
 import Logo from "./partials/_logo";
 import MainMenu from "./partials/_main-menu";
 import SecondaryMenu from "./partials/_secondary-menu";
-import MobileMenu from "./partials/_mobile-menu";
 import { type HeaderContextType, type MenuItems, type UtilityItems } from "./types/headerTypes";
 import { type Maybe, type ReferenceDataFragment } from '@/gql/graphql'
 import { extractLabel } from "@/labels/client";
+import dynamic from 'next/dynamic'
+
+const MobileMenu = dynamic(() => import('./partials/_mobile-menu'), { ssr: false })
 
 export const HeaderContext = createContext<HeaderContextType>({
   menuItems: [],
@@ -70,7 +72,7 @@ export default function Header({ menuItems, utilityItems, logoItem, labels = {} 
   return (
     <HeaderContext.Provider value={headerContext}>
       <header
-        className="outer-padding bg-ghost-white"
+        className="outer-padding bg-ghost-white text-vulcan dark:bg-vulcan dark:text-ghost-white"
         onMouseLeave={handleMouseLeave}
         onMouseEnter={handleMouseEnter}
         onBlur={handleFocusLeave}
@@ -87,7 +89,7 @@ export default function Header({ menuItems, utilityItems, logoItem, labels = {} 
                 {mobileMenuOpen ? extractLabel(labels, "close", { fallback: "CLOSE" }) : extractLabel(labels, "menu", { fallback: "MENU" })}
               </div>
             </button>
-            <MobileMenu />
+            { mobileMenuOpen && <MobileMenu /> }
           </div>
 
           <div className="hidden justify-between grow lg:flex">

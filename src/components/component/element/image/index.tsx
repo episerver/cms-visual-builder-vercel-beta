@@ -1,26 +1,20 @@
-import 'server-only'
+// Base Optimizely CMS Framework components
 import { type CmsComponent } from "@remkoj/optimizely-cms-react"
-import { gql, type Schema } from "@/gql"
-import Image from 'next/image'
+import { type ImageElementDataFragment, ImageElementDataFragmentDoc } from "@/gql/graphql"
+import { CmsEditable } from '@remkoj/optimizely-cms-react/rsc'
 
-// To be moved to library
-import { CmsEditable } from '@/components/CmsEditableRSC'
+// Image Element types and templates
+import type { ImageLayoutProps } from './types'
+import IconImageElement, { isIconImageLayout } from './icon-image'
+import DefaultImageElement from "./default-image"
 
-export const ImageElement : CmsComponent<Schema.ImageElementDataFragment> = ({ data: { altText, imageLink }, contentLink }) => {
-    const srcBase = ((imageLink as Schema.ReferenceDataFragment).url as Schema.Maybe<Schema.LinkDataFragment> | undefined)?.base ?? 'https://example.com'
-    const srcPath = ((imageLink as Schema.ReferenceDataFragment).url as Schema.Maybe<Schema.LinkDataFragment> | undefined)?.default ?? '/'
-    const src = new URL(srcPath, srcBase).href
-    return <CmsEditable className="relative w-full aspect-square" cmsId={ contentLink.key }>
-        <Image alt={altText ?? ""} src={ src } fill className="object-cover" />
-    </CmsEditable>
+export const ImageElement : CmsComponent<ImageElementDataFragment, ImageLayoutProps> = ({ data, layoutProps }) =>
+{
+    if (isIconImageLayout(layoutProps)) {
+        return <CmsEditable as={ IconImageElement } data={ data } layoutProps={ layoutProps }/>
+    }
+    return <CmsEditable as={ DefaultImageElement } data={ data } layoutProps={layoutProps} />
 }
-ImageElement.getDataFragment = () => ['ImageElementData', ImageElementDataFragment]
+ImageElement.getDataFragment = ()=>[ "ImageElementData", ImageElementDataFragmentDoc ]
 
 export default ImageElement
-
-const ImageElementDataFragment = gql(`fragment ImageElementData on ImageElement {
-    altText
-    imageLink {
-        ...ReferenceData
-    }
-}`)

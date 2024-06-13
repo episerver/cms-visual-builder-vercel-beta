@@ -1,33 +1,27 @@
+
+const optimizelyCmsUrl = new URL(process.env.OPTIMIZELY_CMS_URL ?? 'http://localhost:3000')
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
         remotePatterns: [
+          // Allow images from the configured Optimizely CMS URL
           {
-            protocol: 'https',
-            hostname: 'app-scctdemody17ep001.cmstest.optimizely.com',
-            port: '',
+            protocol: optimizelyCmsUrl.protocol.replace(':',''),
+            hostname: optimizelyCmsUrl.hostname,
+            port: optimizelyCmsUrl.port,
             pathname: '/globalassets/**',
-          },
-          {
-            protocol: 'https',
-            hostname: 'app-ocxcbartosz3df73p001.cms.optimizely.com',
-            port: '',
-            pathname: '/globalassets/**',
-          },
-		  {
-            protocol: 'https',
-            hostname: 'localhost',
-            port: '5000',
-            pathname: '/globalassets/**',
-          },
-		  {
-            protocol: 'http',
-            hostname: 'localhost',
-            port: '5001',
-            pathname: '/globalassets/**',
-          },
+          }
         ],
     },
 };
+
+/**
+console.log(' 🚀 Site configuration')
+nextConfig.images.remotePatterns.forEach(pattern => {
+  console.log(`  - White-listing images matching: ${ pattern.protocol }://${ pattern.hostname }${ pattern.port ? ':' + pattern.port : '' }${ pattern.pathname }`)
+})
+console.log('')
+*/
 
 export default nextConfig;

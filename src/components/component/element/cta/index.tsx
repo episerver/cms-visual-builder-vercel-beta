@@ -1,24 +1,20 @@
+// Base Optimizely CMS Framework components
 import { type CmsComponent } from "@remkoj/optimizely-cms-react"
-import { gql, type Schema } from "@/gql"
-import Button from "@/components/shared/button"
+import { type CTAElementDataFragment, CTAElementDataFragmentDoc } from "@/gql/graphql"
+import { CmsEditable } from '@remkoj/optimizely-cms-react/rsc'
 
-export const CTAElement : CmsComponent<Schema.CTAElementDataFragment> = ({ contentLink, data, inEditMode }) =>
+// CTA Element types and templates
+import type { CTALayoutProps } from './types'
+import { isAnimatedTemplate, AnimatedCTAElement } from './animated_cta'
+import { DefaultCTAElement } from "./default_cta"
+
+export const CTAElement : CmsComponent<CTAElementDataFragment, CTALayoutProps> = ({ data, layoutProps }) =>
 {
-    const href : Schema.LinkDataFragment | undefined = data.link ?? undefined
-    const text = data.text ?? "Call-to-action"
-    if (!href)
-        return <div className="cta">{ text }</div>
-
-    const base = href.base ?? 'https://example.com'
-    const path = href.hierarchical ?? '/'
-    return <Button url={ new URL(path, base) } buttonType="primary" data-epi-block-id={ inEditMode && contentLink.key }>{ text }</Button>
-}
-CTAElement.getDataFragment = ()=>[ "CTAElementData", fragment ]
-export default CTAElement
-
-const fragment = gql(`fragment CTAElementData on CTAElement {
-    text: Text
-    link: Link {
-        ...LinkData
+    if (isAnimatedTemplate(layoutProps)) {
+        return <CmsEditable as={ AnimatedCTAElement } data={ data } layoutProps={ layoutProps }/>
     }
-}`)
+    return <CmsEditable as={ DefaultCTAElement } data={ data } layoutProps={layoutProps} />
+}
+CTAElement.getDataFragment = ()=>[ "CTAElementData", CTAElementDataFragmentDoc ]
+
+export default CTAElement

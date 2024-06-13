@@ -4,6 +4,28 @@
     "nodeType": "row",
     "isDefault": false,
     "settings": {
+        "vSpacing": {
+            "displayName": "Vertical Spacing",
+            "sortOrder": 5,
+            "choices": {
+                "none": {
+                    "displayName": "None",
+                    "sortOrder": 10
+                },
+                "small": {
+                    "displayName": "Small",
+                    "sortOrder": 20
+                },
+                "medium": {
+                    "displayName": "Medium",
+                    "sortOrder": 30
+                },
+                "large": {
+                    "displayName": "Large",
+                    "sortOrder": 40
+                }
+            }
+        },
         "rowBackgroundColor": {
             "displayName": "Background color",
             "sortOrder": 10,

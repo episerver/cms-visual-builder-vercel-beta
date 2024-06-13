@@ -21,7 +21,7 @@ type RootLayoutProps = Readonly<PropsWithChildren<{}>>
 
 export default function RootLayout({ children }: RootLayoutProps) {
     return <html lang="en">
-        <body className={`${figtree.className} bg-ghost-white`}>
+        <body className={`${figtree.className} bg-ghost-white text-vulcan dark:bg-vulcan dark:text-ghost-white`}>
             <div className="flex min-h-screen flex-col justify-between">
                 <MoseyBankHeader />
                 {children}

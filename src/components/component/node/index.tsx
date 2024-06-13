@@ -1,27 +1,27 @@
 import { type CmsLayoutComponent } from "@remkoj/optimizely-cms-react"
-import { CmsEditable } from '@/components/CmsEditableRSC'
+import { CmsEditable } from '@remkoj/optimizely-cms-react/rsc'
 
 export const VisualBuilderNode : CmsLayoutComponent = ({ contentLink, layoutProps, children }) =>
 {
     let className = ''
     switch (layoutProps?.layoutType ?? '') {
-        case "experience":
-            className = 'relative w-full flex-1 vb:outline'
+        case "outline":
+            className = 'vb:outline relative w-full'
             break;
-        case "section":
-            className = 'relative w-full flex flex-col flex-nowrap justify-start vb:grid'
+        case "grid":
+            className = 'vb:grid relative w-full flex flex-col flex-nowrap justify-start'
             break;
         case "row":
-            className = 'flex-1 flex flex-row flex-nowrap justify-start vb:row'
+            className = 'vb:row flex-1 flex flex-row flex-nowrap justify-start'
             break;
         case "column":
-            className = 'flex-1 flex flex-col flex-nowrap justify-start vb:column'
+            className = 'vb:column flex-1 flex flex-col flex-nowrap justify-start'
             break;
         default:
             className = `vb:${layoutProps?.layoutType}`
             break;
     }
-    if (layoutProps && layoutProps.layoutType == "section")
+    if (layoutProps && layoutProps.layoutType == "grid")
         return <CmsEditable as="div" className={ className } cmsId={ contentLink.key }>{ children }</CmsEditable>
     return <div className={ className }>{ children }</div>
 }

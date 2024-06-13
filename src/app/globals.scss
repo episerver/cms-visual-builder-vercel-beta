@@ -50,7 +50,7 @@
     }
   
     .btn--primary .btn__content {
-      @apply text-white bg-vulcan z-10;
+      @apply text-white bg-vulcan dark:text-vulcan dark:bg-ghost-white dark:border-ghost-white z-10;
     }
   
     .btn--secondary .btn__content {

@@ -1,14 +1,12 @@
 import { type OptimizelyNextPage } from '@remkoj/optimizely-cms-nextjs'
 import { type BlankExperienceDataFragment, type ExperienceDataFragment, type Maybe, type ICompositionNode, BlankExperienceDataFragmentDoc } from '@/gql/graphql'
-import { OptimizelyComposition, isNode } from '@remkoj/optimizely-cms-react/rsc'
-
-import { CmsEditable } from '@/components/CmsEditableRSC'
+import { OptimizelyComposition, isNode, CmsEditable } from '@remkoj/optimizely-cms-react/rsc'
 import { getSdk } from '@/sdk'
 
 export const BlankExperience : OptimizelyNextPage<BlankExperienceDataFragment> = ({ data }) => 
 {
     const composition = (data as ExperienceDataFragment).composition as Maybe<ICompositionNode>
-    return <CmsEditable as="main" cmsFieldName="unstructuredData" className="flex-grow">
+    return <CmsEditable as="main" cmsFieldName="unstructuredData" className="flex-grow overflow-x-hidden">
         { composition && isNode(composition) && <OptimizelyComposition node={composition} /> }
     </CmsEditable>
 }
