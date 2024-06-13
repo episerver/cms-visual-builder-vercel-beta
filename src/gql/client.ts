@@ -221,6 +221,10 @@ export const BlockDataFragmentDoc = /*#__PURE__*/ gql`
     `;
 export const ArticleGroupPageDataFragmentDoc = /*#__PURE__*/ gql`
     fragment ArticleGroupPageData on ArticleGroupPage {
+  articleGroupTitle
+  articleGroupIntro {
+    json
+  }
   MainContent {
     ...BlockData
   }
@@ -371,6 +375,40 @@ export const getBlankExperienceMetaDataDocument = /*#__PURE__*/ gql`
   }
 }
     `;
+export const getArticleGroupPageItemsDocument = /*#__PURE__*/ gql`
+    query getArticleGroupPageItems($key: String!, $locale: [Locales], $pageSize: Int, $skip: Int, $orderBy: ArticlePageOrderByInput) {
+  group: ArticleGroupPage(where: {_metadata: {key: {eq: $key}}}, locale: $locale) {
+    data: items {
+      children: _link(type: ITEMS) {
+        listing: ArticlePage(
+          limit: $pageSize
+          orderBy: $orderBy
+          locale: $locale
+          skip: $skip
+        ) {
+          total
+          items {
+            ...IContentData
+            _metadata {
+              published
+            }
+            articleHeroImage {
+              ...ReferenceData
+            }
+            articleTitle
+            articleSummary {
+              json
+            }
+          }
+        }
+      }
+    }
+  }
+}
+    ${IContentDataFragmentDoc}
+${IContentInfoFragmentDoc}
+${LinkDataFragmentDoc}
+${ReferenceDataFragmentDoc}`;
 export const getArticlePageMetaDataDocument = /*#__PURE__*/ gql`
     query getArticlePageMetaData($key: String!, $version: String) {
   BlankExperience(where: {_metadata: {key: {eq: $key}, version: {eq: $version}}}) {
@@ -481,6 +519,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     getBlankExperienceMetaData(variables: Schema.getBlankExperienceMetaDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getBlankExperienceMetaDataQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getBlankExperienceMetaDataQuery>(getBlankExperienceMetaDataDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getBlankExperienceMetaData', 'query', variables);
+    },
+    getArticleGroupPageItems(variables: Schema.getArticleGroupPageItemsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getArticleGroupPageItemsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getArticleGroupPageItemsQuery>(getArticleGroupPageItemsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getArticleGroupPageItems', 'query', variables);
     },
     getArticlePageMetaData(variables: Schema.getArticlePageMetaDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getArticlePageMetaDataQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getArticlePageMetaDataQuery>(getArticlePageMetaDataDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getArticlePageMetaData', 'query', variables);
