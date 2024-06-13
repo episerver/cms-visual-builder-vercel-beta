@@ -136,12 +136,6 @@ export const BlankExperienceDataFragmentDoc = /*#__PURE__*/ gql`
   ...ExperienceData
 }
     `;
-export const PageDataFragmentDoc = /*#__PURE__*/ gql`
-    fragment PageData on _IContent {
-  ...IContentData
-  ...BlankExperienceData
-}
-    `;
 export const ButtonBlockDataFragmentDoc = /*#__PURE__*/ gql`
     fragment ButtonBlockData on ButtonBlock {
   text
@@ -225,6 +219,36 @@ export const BlockDataFragmentDoc = /*#__PURE__*/ gql`
   ...NavigationMenuBlockData
 }
     `;
+export const ArticleGroupPageDataFragmentDoc = /*#__PURE__*/ gql`
+    fragment ArticleGroupPageData on ArticleGroupPage {
+  MainContent {
+    ...BlockData
+  }
+}
+    `;
+export const ArticlePageDataFragmentDoc = /*#__PURE__*/ gql`
+    fragment ArticlePageData on ArticlePage {
+  metadata: _metadata {
+    published
+  }
+  articleHeroImage {
+    ...ReferenceData
+  }
+  articleAuthors
+  articleTitle
+  articleBody {
+    json
+  }
+}
+    `;
+export const PageDataFragmentDoc = /*#__PURE__*/ gql`
+    fragment PageData on _IContent {
+  ...IContentData
+  ...BlankExperienceData
+  ...ArticleGroupPageData
+  ...ArticlePageData
+}
+    `;
 export const MenuContentFragmentDoc = /*#__PURE__*/ gql`
     fragment MenuContent on NavigationMenuBlockProperty {
   heading: MenuNavigationHeading
@@ -294,7 +318,9 @@ ${CTAElementDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
 ${ParagraphElementDataFragmentDoc}
-${TestimonialElementDataFragmentDoc}`;
+${TestimonialElementDataFragmentDoc}
+${ArticleGroupPageDataFragmentDoc}
+${ArticlePageDataFragmentDoc}`;
 export const getContentByPathDocument = /*#__PURE__*/ gql`
     query getContentByPath($path: String!, $version: String, $locale: [Locales!], $domain: String) {
   content: _Content(
@@ -321,7 +347,44 @@ ${HeadingElementDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
 ${ReferenceDataFragmentDoc}
 ${ParagraphElementDataFragmentDoc}
-${TestimonialElementDataFragmentDoc}`;
+${TestimonialElementDataFragmentDoc}
+${ArticleGroupPageDataFragmentDoc}
+${BlockDataFragmentDoc}
+${ButtonBlockDataFragmentDoc}
+${CardBlockDataFragmentDoc}
+${ButtonBlockPropertyDataFragmentDoc}
+${MegaMenuGroupBlockDataFragmentDoc}
+${NavigationMenuBlockDataFragmentDoc}
+${LinkItemDataFragmentDoc}
+${ArticlePageDataFragmentDoc}`;
+export const getBlankExperienceMetaDataDocument = /*#__PURE__*/ gql`
+    query getBlankExperienceMetaData($key: String!, $version: String) {
+  BlankExperience(where: {_metadata: {key: {eq: $key}, version: {eq: $version}}}) {
+    items {
+      _metadata {
+        displayName
+      }
+      SeoSettings {
+        metaTitle
+      }
+    }
+  }
+}
+    `;
+export const getArticlePageMetaDataDocument = /*#__PURE__*/ gql`
+    query getArticlePageMetaData($key: String!, $version: String) {
+  BlankExperience(where: {_metadata: {key: {eq: $key}, version: {eq: $version}}}) {
+    items {
+      _metadata {
+        displayName
+      }
+      SeoSettings {
+        metaTitle
+      }
+    }
+  }
+}
+    `;
 export const getFooterDocument = /*#__PURE__*/ gql`
     query getFooter {
   footer: WebsiteFooter {
@@ -382,20 +445,6 @@ ${LinkItemDataFragmentDoc}
 ${CardBlockDataFragmentDoc}
 ${ButtonBlockPropertyDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}`;
-export const getBlankExperienceMetaDataDocument = /*#__PURE__*/ gql`
-    query getBlankExperienceMetaData($key: String!, $version: String) {
-  BlankExperience(where: {_metadata: {key: {eq: $key}, version: {eq: $version}}}) {
-    items {
-      _metadata {
-        displayName
-      }
-      SeoSettings {
-        metaTitle
-      }
-    }
-  }
-}
-    `;
 export const getDictionaryDocument = /*#__PURE__*/ gql`
     query getDictionary($dictionary: String!, $locale: [Locales]) {
   getDictionary: Dictionary(
@@ -430,14 +479,17 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     getContentByPath(variables: Schema.getContentByPathQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getContentByPathQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getContentByPathQuery>(getContentByPathDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getContentByPath', 'query', variables);
     },
+    getBlankExperienceMetaData(variables: Schema.getBlankExperienceMetaDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getBlankExperienceMetaDataQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getBlankExperienceMetaDataQuery>(getBlankExperienceMetaDataDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getBlankExperienceMetaData', 'query', variables);
+    },
+    getArticlePageMetaData(variables: Schema.getArticlePageMetaDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getArticlePageMetaDataQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getArticlePageMetaDataQuery>(getArticlePageMetaDataDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getArticlePageMetaData', 'query', variables);
+    },
     getFooter(variables?: Schema.getFooterQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getFooterQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getFooterQuery>(getFooterDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getFooter', 'query', variables);
     },
     getHeader(variables?: Schema.getHeaderQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getHeaderQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getHeaderQuery>(getHeaderDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getHeader', 'query', variables);
-    },
-    getBlankExperienceMetaData(variables: Schema.getBlankExperienceMetaDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getBlankExperienceMetaDataQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getBlankExperienceMetaDataQuery>(getBlankExperienceMetaDataDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getBlankExperienceMetaData', 'query', variables);
     },
     getDictionary(variables: Schema.getDictionaryQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getDictionaryQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getDictionaryQuery>(getDictionaryDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getDictionary', 'query', variables);

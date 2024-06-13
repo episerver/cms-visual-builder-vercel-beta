@@ -28,6 +28,11 @@ const documents = {
     "query getContentByPath($path: String!, $version: String, $locale: [Locales!], $domain: String) {\n  content: _Content(\n    where: {_metadata: {url: {default: {eq: $path}, base: {eq: $domain}}, version: {eq: $version}}}\n    locale: $locale\n  ) {\n    total\n    items {\n      ...PageData\n    }\n  }\n}": types.getContentByPathDocument,
     "fragment LinkData on ContentUrl {\n  base\n  hierarchical\n  default\n}": types.LinkDataFragmentDoc,
     "fragment IContentData on _IContent {\n  _metadata {\n    ...IContentInfo\n  }\n  _type: __typename\n}": types.IContentDataFragmentDoc,
+    "fragment BlankExperienceData on BlankExperience {\n  ...ExperienceData\n}": types.BlankExperienceDataFragmentDoc,
+    "query getBlankExperienceMetaData($key: String!, $version: String) {\n  BlankExperience(where: {_metadata: {key: {eq: $key}, version: {eq: $version}}}) {\n    items {\n      _metadata {\n        displayName\n      }\n      SeoSettings {\n        metaTitle\n      }\n    }\n  }\n}": types.getBlankExperienceMetaDataDocument,
+    "fragment ArticleGroupPageData on ArticleGroupPage {\n  MainContent {\n    ...BlockData\n  }\n}": types.ArticleGroupPageDataFragmentDoc,
+    "query getArticlePageMetaData($key: String!, $version: String) {\n  BlankExperience(where: {_metadata: {key: {eq: $key}, version: {eq: $version}}}) {\n    items {\n      _metadata {\n        displayName\n      }\n      SeoSettings {\n        metaTitle\n      }\n    }\n  }\n}": types.getArticlePageMetaDataDocument,
+    "fragment ArticlePageData on ArticlePage {\n  metadata: _metadata {\n    published\n  }\n  articleHeroImage {\n    ...ReferenceData\n  }\n  articleAuthors\n  articleTitle\n  articleBody {\n    json\n  }\n}": types.ArticlePageDataFragmentDoc,
     "fragment ButtonBlockData on ButtonBlock {\n  text\n  link {\n    ...LinkData\n  }\n  className\n  buttonType\n  variant\n}": types.ButtonBlockDataFragmentDoc,
     "fragment ButtonBlockPropertyData on ButtonBlockProperty {\n  text\n  link {\n    ...LinkData\n  }\n  className\n  buttonType\n  variant\n}": types.ButtonBlockPropertyDataFragmentDoc,
     "fragment CardBlockData on CardBlock {\n  heading: CardHeading\n  subheading: CardSubheading\n  description: CardDescription {\n    json\n  }\n  icon: CardIcon {\n    ...ReferenceData\n  }\n  image: CardImage {\n    ...ReferenceData\n  }\n  link: CardButton {\n    ...ButtonBlockPropertyData\n  }\n  color: CardColor\n  layout: CardImageLayout\n}": types.CardBlockDataFragmentDoc,
@@ -40,8 +45,6 @@ const documents = {
     "query getHeader {\n  menuItems: HeaderBlock {\n    items {\n      logo: site_logo {\n        ...ReferenceData\n      }\n      headerNavigation: site_main_navigation {\n        ...IContentData\n        ...MegaMenuGroupBlockData\n      }\n      utilityNavigation: site_utility_navigation {\n        ...IContentData\n        ...ButtonBlockData\n      }\n    }\n  }\n}": types.getHeaderDocument,
     "fragment MegaMenuGroupBlockData on MegaMenuGroupBlock {\n  menuName: MenuMenuHeading\n  menuLink: MegaMenuUrl {\n    ...LinkData\n  }\n  menuData: MegaMenuContentArea {\n    __typename\n    ...IContentData\n    ...NavigationMenuBlockData\n    ...CardBlockData\n  }\n}": types.MegaMenuGroupBlockDataFragmentDoc,
     "fragment NavigationMenuBlockData on NavigationMenuBlock {\n  title: MenuNavigationHeading\n  items: NavigationLinks {\n    ...LinkItemData\n  }\n}": types.NavigationMenuBlockDataFragmentDoc,
-    "fragment BlankExperienceData on BlankExperience {\n  ...ExperienceData\n}": types.BlankExperienceDataFragmentDoc,
-    "query getBlankExperienceMetaData($key: String!, $version: String) {\n  BlankExperience(where: {_metadata: {key: {eq: $key}, version: {eq: $version}}}) {\n    items {\n      _metadata {\n        displayName\n      }\n      SeoSettings {\n        metaTitle\n      }\n    }\n  }\n}": types.getBlankExperienceMetaDataDocument,
     "query getDictionary($dictionary: String!, $locale: [Locales]) {\n  getDictionary: Dictionary(\n    where: {DictionaryKey: {eq: $dictionary}}\n    locale: $locale\n  ) {\n    total\n    items {\n      key: DictionaryKey\n      contents: DictionaryItems {\n        key: DictionaryItemKey\n        value: DictionaryItemValue\n      }\n    }\n  }\n}": types.getDictionaryDocument,
 };
 
@@ -122,6 +125,26 @@ export function gql(source: "fragment IContentData on _IContent {\n  _metadata {
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
+export function gql(source: "fragment BlankExperienceData on BlankExperience {\n  ...ExperienceData\n}"): (typeof documents)["fragment BlankExperienceData on BlankExperience {\n  ...ExperienceData\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "query getBlankExperienceMetaData($key: String!, $version: String) {\n  BlankExperience(where: {_metadata: {key: {eq: $key}, version: {eq: $version}}}) {\n    items {\n      _metadata {\n        displayName\n      }\n      SeoSettings {\n        metaTitle\n      }\n    }\n  }\n}"): (typeof documents)["query getBlankExperienceMetaData($key: String!, $version: String) {\n  BlankExperience(where: {_metadata: {key: {eq: $key}, version: {eq: $version}}}) {\n    items {\n      _metadata {\n        displayName\n      }\n      SeoSettings {\n        metaTitle\n      }\n    }\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "fragment ArticleGroupPageData on ArticleGroupPage {\n  MainContent {\n    ...BlockData\n  }\n}"): (typeof documents)["fragment ArticleGroupPageData on ArticleGroupPage {\n  MainContent {\n    ...BlockData\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "query getArticlePageMetaData($key: String!, $version: String) {\n  BlankExperience(where: {_metadata: {key: {eq: $key}, version: {eq: $version}}}) {\n    items {\n      _metadata {\n        displayName\n      }\n      SeoSettings {\n        metaTitle\n      }\n    }\n  }\n}"): (typeof documents)["query getArticlePageMetaData($key: String!, $version: String) {\n  BlankExperience(where: {_metadata: {key: {eq: $key}, version: {eq: $version}}}) {\n    items {\n      _metadata {\n        displayName\n      }\n      SeoSettings {\n        metaTitle\n      }\n    }\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "fragment ArticlePageData on ArticlePage {\n  metadata: _metadata {\n    published\n  }\n  articleHeroImage {\n    ...ReferenceData\n  }\n  articleAuthors\n  articleTitle\n  articleBody {\n    json\n  }\n}"): (typeof documents)["fragment ArticlePageData on ArticlePage {\n  metadata: _metadata {\n    published\n  }\n  articleHeroImage {\n    ...ReferenceData\n  }\n  articleAuthors\n  articleTitle\n  articleBody {\n    json\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
 export function gql(source: "fragment ButtonBlockData on ButtonBlock {\n  text\n  link {\n    ...LinkData\n  }\n  className\n  buttonType\n  variant\n}"): (typeof documents)["fragment ButtonBlockData on ButtonBlock {\n  text\n  link {\n    ...LinkData\n  }\n  className\n  buttonType\n  variant\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
@@ -167,14 +190,6 @@ export function gql(source: "fragment MegaMenuGroupBlockData on MegaMenuGroupBlo
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "fragment NavigationMenuBlockData on NavigationMenuBlock {\n  title: MenuNavigationHeading\n  items: NavigationLinks {\n    ...LinkItemData\n  }\n}"): (typeof documents)["fragment NavigationMenuBlockData on NavigationMenuBlock {\n  title: MenuNavigationHeading\n  items: NavigationLinks {\n    ...LinkItemData\n  }\n}"];
-/**
- * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function gql(source: "fragment BlankExperienceData on BlankExperience {\n  ...ExperienceData\n}"): (typeof documents)["fragment BlankExperienceData on BlankExperience {\n  ...ExperienceData\n}"];
-/**
- * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function gql(source: "query getBlankExperienceMetaData($key: String!, $version: String) {\n  BlankExperience(where: {_metadata: {key: {eq: $key}, version: {eq: $version}}}) {\n    items {\n      _metadata {\n        displayName\n      }\n      SeoSettings {\n        metaTitle\n      }\n    }\n  }\n}"): (typeof documents)["query getBlankExperienceMetaData($key: String!, $version: String) {\n  BlankExperience(where: {_metadata: {key: {eq: $key}, version: {eq: $version}}}) {\n    items {\n      _metadata {\n        displayName\n      }\n      SeoSettings {\n        metaTitle\n      }\n    }\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

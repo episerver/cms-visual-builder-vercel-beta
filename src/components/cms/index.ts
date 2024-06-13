@@ -9,7 +9,8 @@ import pageComponents from "./page";
 //prefixDictionaryEntries(componentComponents, 'Component');
 //prefixDictionaryEntries(elementComponents, 'Element');
 prefixDictionaryEntries(experienceComponents, 'Experience');
-prefixDictionaryEntries(pageComponents, 'Page');
+prefixDictionaryEntries(experienceComponents, 'Page');
+prefixDictionaryEntries(pageComponents, 'Page');  // Experiences are a subtype of page
 //prefixDictionaryEntries(sectionComponents, 'Section');
 
 export const cmsComponentDictionary : ComponentTypeDictionary = [

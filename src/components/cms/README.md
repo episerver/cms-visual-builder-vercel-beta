@@ -1,0 +1,2 @@
+# CMS Components
+This is the recommended folder to keep the components and definition files for everything that maps directly to the Optimizely CMS. The scaffolding and synchronization logic within the [Optimizely CMS CLI](@remkoj/optimizely-cms-cli)
