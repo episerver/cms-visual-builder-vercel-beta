@@ -905,15 +905,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/add@npm:^5.0.2":
-  version: 5.0.2
-  resolution: "@graphql-codegen/add@npm:5.0.2"
+"@graphql-codegen/add@npm:^5.0.2, @graphql-codegen/add@npm:^5.0.3":
+  version: 5.0.3
+  resolution: "@graphql-codegen/add@npm:5.0.3"
   dependencies:
     "@graphql-codegen/plugin-helpers": "npm:^5.0.3"
     tslib: "npm:~2.6.0"
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 10/60f32609d9e97ca2c48dc6fc4ff212c5e600e02c1cd583448a4fea01b9d24a9c75e70691ae56aabdd3d4c1e918825c8d813705300ca68047046f3a8cddc0c0c8
+  checksum: 10/5e4ea9b5d76e6f472015185d0d007abf38ba7b27fb613b163ef1ca6c732695951111721896ee36894d098b27a67c55a84d000b503db93b9d9e6713e34d2fa5a6
   languageName: node
   linkType: hard
 
@@ -971,13 +971,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/client-preset@npm:^4.2.2, @graphql-codegen/client-preset@npm:^4.2.6":
-  version: 4.2.6
-  resolution: "@graphql-codegen/client-preset@npm:4.2.6"
+"@graphql-codegen/client-preset@npm:^4.2.2, @graphql-codegen/client-preset@npm:^4.2.6, @graphql-codegen/client-preset@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "@graphql-codegen/client-preset@npm:4.3.0"
   dependencies:
     "@babel/helper-plugin-utils": "npm:^7.20.2"
     "@babel/template": "npm:^7.20.7"
-    "@graphql-codegen/add": "npm:^5.0.2"
+    "@graphql-codegen/add": "npm:^5.0.3"
     "@graphql-codegen/gql-tag-operations": "npm:4.0.7"
     "@graphql-codegen/plugin-helpers": "npm:^5.0.4"
     "@graphql-codegen/typed-document-node": "npm:^5.0.7"
@@ -990,7 +990,7 @@ __metadata:
     tslib: "npm:~2.6.0"
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 10/790e415bf9509dfcaf8231436e112d662e8995307891a626b23da20c8dbec5a1cf1e164edf270025bdafcf029f97e2b91cae3684e06ecdfa6260563e50eab95e
+  checksum: 10/34ccb36565e77b15c12c998f2f6d2c368710a78d2d0d1b7e9a039d1a01d8a84e78413076906a88617464efb646be914f9bbb839190ca98a9bfdddaf387dcdb54
   languageName: node
   linkType: hard
 
@@ -2371,7 +2371,7 @@ __metadata:
 
 "@remkoj/optimizely-cms-cli@file:packages/dist/@remkoj-optimizely-cms-cli-dev.tgz::locator=cms-visual-builder-vercel-demo%40workspace%3A.":
   version: 2.0.0-pre6
-  resolution: "@remkoj/optimizely-cms-cli@file:packages/dist/@remkoj-optimizely-cms-cli-dev.tgz#packages/dist/@remkoj-optimizely-cms-cli-dev.tgz::hash=01edeb&locator=cms-visual-builder-vercel-demo%40workspace%3A."
+  resolution: "@remkoj/optimizely-cms-cli@file:packages/dist/@remkoj-optimizely-cms-cli-dev.tgz#packages/dist/@remkoj-optimizely-cms-cli-dev.tgz::hash=351edb&locator=cms-visual-builder-vercel-demo%40workspace%3A."
   dependencies:
     chalk: "npm:^5.3.0"
     cli-table3: "npm:^0.6.5"
@@ -2384,13 +2384,13 @@ __metadata:
     "@remkoj/optimizely-cms-api": 2.0.0-pre6
   bin:
     opti-cms: ./dist/index.js
-  checksum: 10/08a2ed63a0e663573eec46f6f52af177f36f7be8bd373215d570f6b97768e56501d8cd74f02005056d433c104f7a727702d56adbf265433f980c2de55ffeaa89
+  checksum: 10/2d87caba5f7bf547121ea337fe81a4f8bfa0bd6b140efc260a83b99d1fb4d00769bfd001e51ba0ec26cc22ab58050346e20a441d4296f8777f9f60ca25502e5b
   languageName: node
   linkType: hard
 
 "@remkoj/optimizely-cms-nextjs@file:packages/dist/@remkoj-optimizely-cms-nextjs-dev.tgz::locator=cms-visual-builder-vercel-demo%40workspace%3A.":
   version: 2.0.0-pre6
-  resolution: "@remkoj/optimizely-cms-nextjs@file:packages/dist/@remkoj-optimizely-cms-nextjs-dev.tgz#packages/dist/@remkoj-optimizely-cms-nextjs-dev.tgz::hash=787d99&locator=cms-visual-builder-vercel-demo%40workspace%3A."
+  resolution: "@remkoj/optimizely-cms-nextjs@file:packages/dist/@remkoj-optimizely-cms-nextjs-dev.tgz#packages/dist/@remkoj-optimizely-cms-nextjs-dev.tgz::hash=588623&locator=cms-visual-builder-vercel-demo%40workspace%3A."
   dependencies:
     deepmerge: "npm:^4.3.1"
   peerDependencies:
@@ -2400,13 +2400,13 @@ __metadata:
     graphql-request: ^6.1.0
     next: ^14.2.3
     react: ^18.3.1
-  checksum: 10/28723566ee5829b7519ba5a1dd58838c69d3c576373ccc6f119d0e23e161675a6a2b217cef938de86ac771a5b6adcfce282908eebe94a77e1b0ab0f28a49e404
+  checksum: 10/5a324f2fea8d42e0b52fea45834eb93e47cec923f40ebf9a9bb7832d4ee8fd78c18d46714b7c50716bf7e3195f865f2e1e8e0faa057be5cb5ac9195450da897f
   languageName: node
   linkType: hard
 
 "@remkoj/optimizely-cms-react@file:packages/dist/@remkoj-optimizely-cms-react-dev.tgz::locator=cms-visual-builder-vercel-demo%40workspace%3A.":
   version: 2.0.0-pre6
-  resolution: "@remkoj/optimizely-cms-react@file:packages/dist/@remkoj-optimizely-cms-react-dev.tgz#packages/dist/@remkoj-optimizely-cms-react-dev.tgz::hash=cf8acc&locator=cms-visual-builder-vercel-demo%40workspace%3A."
+  resolution: "@remkoj/optimizely-cms-react@file:packages/dist/@remkoj-optimizely-cms-react-dev.tgz#packages/dist/@remkoj-optimizely-cms-react-dev.tgz::hash=ccf31e&locator=cms-visual-builder-vercel-demo%40workspace%3A."
   dependencies:
     "@graphql-typed-document-node/core": "npm:^3.2.0"
     crypto-js: "npm:^4.2.0"
@@ -2417,7 +2417,7 @@ __metadata:
     graphql-request: ^6.1.0
     react: "*"
     react-dom: "*"
-  checksum: 10/e16412083e6fb0f76275a5194785d67e92c05cdaf37fdf6104eb40c5b8ad07db3753c3ebbe87b2c3bcbf6837ef0a4a7d6ea07eea4ad6cfa3e28cbc9858cc3b19
+  checksum: 10/33b2714a061f00c1d9c06154f913d0adc1bcf43708a64c23258f898c5c59cf71083ba6964fe69386f4d046cede9cd5735d13b89210fc19919d90c35f65d2a102
   languageName: node
   linkType: hard
 
@@ -2952,12 +2952,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/next@npm:4.2.16":
-  version: 4.2.16
-  resolution: "@vercel/next@npm:4.2.16"
+"@vercel/next@npm:4.2.17":
+  version: 4.2.17
+  resolution: "@vercel/next@npm:4.2.17"
   dependencies:
     "@vercel/nft": "npm:0.27.2"
-  checksum: 10/d0390c55330c3ee425cedddba5ae8c08dba238e4d77395dd540088e6ffe83ee9ddb93bf5db7990768ddee460e2bdf86612c85ed4863c5483685e83468ac989bf
+  checksum: 10/ce0d4fe00f3eb646c1b43165a07f6300210daf8a138ac90fb62f352835920281bd57f7bfb27cb76c1adcb08b8f010499d6659903451ff1cf502e73318125b639
   languageName: node
   linkType: hard
 
@@ -4274,7 +4274,7 @@ __metadata:
     "@emotion/is-prop-valid": "npm:^1.2.2"
     "@formatjs/intl-localematcher": "npm:^0.5.4"
     "@graphql-codegen/cli": "npm:^5.0.2"
-    "@graphql-codegen/client-preset": "npm:^4.2.6"
+    "@graphql-codegen/client-preset": "npm:^4.3.0"
     "@graphql-typed-document-node/core": "npm:^3.2.0"
     "@headlessui/react": "npm:^2.0.4"
     "@heroicons/react": "npm:^2.1.3"
@@ -4307,7 +4307,7 @@ __metadata:
     eslint-config-next: "npm:14.2.4"
     figures: "npm:^6.1.0"
     framer-motion: "npm:^11.2.10"
-    graphql: "npm:^16.8.1"
+    graphql: "npm:^16.8.2"
     graphql-request: "npm:^6.1.0"
     graphql-tag: "npm:^2.12.6"
     negotiator: "npm:^0.6.3"
@@ -4319,7 +4319,7 @@ __metadata:
     tailwindcss: "npm:^3.4.4"
     ts-node: "npm:^10.9.2"
     typescript: "npm:^5.4.5"
-    vercel: "npm:^34.2.6"
+    vercel: "npm:^34.2.7"
   languageName: unknown
   linkType: soft
 
@@ -6333,10 +6333,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:*, graphql@npm:^16.8.1":
-  version: 16.8.1
-  resolution: "graphql@npm:16.8.1"
-  checksum: 10/7a09d3ec5f75061afe2bd2421a2d53cf37273d2ecaad8f34febea1f1ac205dfec2834aec3419fa0a10fcc9fb345863b2f893562fb07ea825da2ae82f6392893c
+"graphql@npm:*, graphql@npm:^16.8.2":
+  version: 16.8.2
+  resolution: "graphql@npm:16.8.2"
+  checksum: 10/d74aa1f28a0bbc1c7e60aeb7e4e199e0818ed7169b97bd4d4e86cf345d5645615a9ccb33a11f1ab5e145fdd91d432b3aa475836d3bc5f9647e6103c8854e7e99
   languageName: node
   linkType: hard
 
@@ -10344,15 +10344,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vercel@npm:^34.2.6":
-  version: 34.2.6
-  resolution: "vercel@npm:34.2.6"
+"vercel@npm:^34.2.7":
+  version: 34.2.7
+  resolution: "vercel@npm:34.2.7"
   dependencies:
     "@vercel/build-utils": "npm:8.2.2"
     "@vercel/fun": "npm:1.1.0"
     "@vercel/go": "npm:3.1.1"
     "@vercel/hydrogen": "npm:1.0.2"
-    "@vercel/next": "npm:4.2.16"
+    "@vercel/next": "npm:4.2.17"
     "@vercel/node": "npm:3.1.7"
     "@vercel/python": "npm:4.3.0"
     "@vercel/redwood": "npm:2.0.10"
@@ -10363,7 +10363,7 @@ __metadata:
   bin:
     vc: dist/index.js
     vercel: dist/index.js
-  checksum: 10/245bbbdeb146c89031085b84757d8ab1a58b80cde8bffa024c48c33ff5c551aa032dfac41f3a384b342f663d8d9b23f3b147d2037f9ce88118feca80cb125bf6
+  checksum: 10/db5c79529ca9c31919085aff8a53e0054317a34ce0b2f2ede435f60a9119c0a7eecc98dc4d6d80628020c3d620dfe7e400e0b2b6aa11521dd13a9cd9a83e53f1
   languageName: node
   linkType: hard
 

@@ -1,0 +1,7 @@
+fragment ArticleGroupPageData on ArticleGroupPage {
+  articleGroupTitle
+  articleGroupIntro {
+    json
+  }
+  MainContent { ...BlockData }
+}

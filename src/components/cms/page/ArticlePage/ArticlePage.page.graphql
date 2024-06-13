@@ -1,0 +1,13 @@
+fragment ArticlePageData on ArticlePage {
+  metadata: _metadata {
+    published
+  }
+  articleHeroImage {
+    ...ReferenceData
+  }
+  articleAuthors
+  articleTitle
+  articleBody {
+    json
+  }
+}
