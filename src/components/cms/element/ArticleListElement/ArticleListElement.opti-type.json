@@ -1,0 +1,20 @@
+{
+  "key": "ArticleListElement",
+  "displayName": "Article List",
+  "description": "Show an article listing",
+  "baseType": "element",
+  "sortOrder": 0,
+  "properties": {
+    "articleListCount": {
+      "type": "integer",
+      "displayName": "Number of items",
+      "description": "",
+      "localized": false,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 20,
+      "minimum": 1,
+      "maximum": 6
+    }
+  }
+}

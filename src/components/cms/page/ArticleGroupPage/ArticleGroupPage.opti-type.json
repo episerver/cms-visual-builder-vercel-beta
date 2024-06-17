@@ -1,0 +1,75 @@
+{
+  "key": "ArticleGroupPage",
+  "displayName": "Article Group Page",
+  "description": "Provides a listing of all articles added as child of this page, used for news sections, blogs, etc...",
+  "baseType": "page",
+  "source": "",
+  "sortOrder": 110,
+  "features": [
+    "localization",
+    "versioning",
+    "publishPeriod",
+    "routing"
+  ],
+  "usage": [
+    "instance"
+  ],
+  "mayContainTypes": [
+    "ArticlePage"
+  ],
+  "mediaFileExtensions": [],
+  "created": "2024-03-19T14:04:46.7033333+00:00",
+  "lastModified": "2024-06-13T20:51:14.0339764+00:00",
+  "lastModifiedBy": "remko.jantzen@optimizely.com",
+  "properties": {
+    "LandingPageSeoSettings": {
+      "type": "component",
+      "contentType": "PageSeoSettings",
+      "displayName": "SEO Settings",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "SeoData",
+      "sortOrder": 10,
+      "editorSettings": {}
+    },
+    "articleGroupTitle": {
+      "type": "string",
+      "displayName": "Title",
+      "description": "",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 10,
+      "indexingType": "queryable",
+      "editorSettings": {}
+    },
+    "articleGroupIntro": {
+      "type": "string",
+      "format": "html",
+      "displayName": "Introduction",
+      "description": "",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 20,
+      "indexingType": "queryable",
+      "editorSettings": {}
+    },
+    "MainContent": {
+      "type": "array",
+      "displayName": "Main Content",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 30,
+      "editorSettings": {},
+      "items": {
+        "type": "content",
+        "allowedTypes": [],
+        "restrictedTypes": []
+      }
+    }
+  }
+}

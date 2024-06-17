@@ -16,9 +16,10 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(({ logoItem, logoAltTe
           src={ logoItem }
           fallbackSrc="/assets/moseybank-logo.svg"
           alt={ logoAltText }
-          width={200}
-          height={36}
+          width={ 200 }
+          height={ 36 }
           unoptimized
+          priority
         />
       </Link>
     </div>

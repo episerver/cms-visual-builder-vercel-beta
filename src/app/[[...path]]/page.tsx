@@ -8,7 +8,7 @@ const { CmsPage:OptimizelyPage, generateMetadata, generateStaticParams } = CmsPa
     client: () => {
         const client = getServerClient()
         client.updateFlags({
-            queryCache: false
+            queryCache: false // We're depending on @recursive & cursors, which don't work with the queryCache
         })
         return client
     }

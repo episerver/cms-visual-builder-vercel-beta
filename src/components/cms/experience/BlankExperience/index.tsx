@@ -10,6 +10,7 @@ export const BlankExperience : OptimizelyNextPage<BlankExperienceDataFragment> =
         { composition && isNode(composition) && <OptimizelyComposition node={composition} /> }
     </CmsEditable>
 }
+BlankExperience.displayName = "BlankExperience"
 BlankExperience.getDataFragment = () => ['BlankExperienceData', BlankExperienceDataFragmentDoc]
 BlankExperience.getMetaData = async (contentLink) => {
     const sdk = getSdk()

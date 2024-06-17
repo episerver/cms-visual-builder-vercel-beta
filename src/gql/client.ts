@@ -42,6 +42,11 @@ export const IElementDataFragmentDoc = /*#__PURE__*/ gql`
   _type: __typename
 }
     `;
+export const ArticleListElementDataFragmentDoc = /*#__PURE__*/ gql`
+    fragment ArticleListElementData on ArticleListElement {
+  articleListCount
+}
+    `;
 export const CTAElementDataFragmentDoc = /*#__PURE__*/ gql`
     fragment CTAElementData on CTAElement {
   text: Text
@@ -94,6 +99,7 @@ export const TestimonialElementDataFragmentDoc = /*#__PURE__*/ gql`
 export const ElementDataFragmentDoc = /*#__PURE__*/ gql`
     fragment ElementData on _IElement {
   ...IElementData
+  ...ArticleListElementData
   ...CTAElementData
   ...HeadingElementData
   ...ImageElementData
@@ -318,6 +324,7 @@ ${ExperienceDataFragmentDoc}
 ${CompositionDataFragmentDoc}
 ${ElementDataFragmentDoc}
 ${IElementDataFragmentDoc}
+${ArticleListElementDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
@@ -346,6 +353,7 @@ ${ExperienceDataFragmentDoc}
 ${CompositionDataFragmentDoc}
 ${ElementDataFragmentDoc}
 ${IElementDataFragmentDoc}
+${ArticleListElementDataFragmentDoc}
 ${CTAElementDataFragmentDoc}
 ${HeadingElementDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
@@ -361,6 +369,35 @@ ${MegaMenuGroupBlockDataFragmentDoc}
 ${NavigationMenuBlockDataFragmentDoc}
 ${LinkItemDataFragmentDoc}
 ${ArticlePageDataFragmentDoc}`;
+export const getArticleListElementItemsDocument = /*#__PURE__*/ gql`
+    query getArticleListElementItems($count: Int, $locale: [Locales]) {
+  ArticlePage(
+    orderBy: {_metadata: {published: DESC}}
+    limit: $count
+    locale: $locale
+  ) {
+    items {
+      ...IContentData
+      articleTitle
+      articleMeta: _metadata {
+        key
+        published
+        lastModified
+      }
+      articleAuthors
+      articleSummary {
+        json
+      }
+      articleHeroImage {
+        ...ReferenceData
+      }
+    }
+  }
+}
+    ${IContentDataFragmentDoc}
+${IContentInfoFragmentDoc}
+${LinkDataFragmentDoc}
+${ReferenceDataFragmentDoc}`;
 export const getBlankExperienceMetaDataDocument = /*#__PURE__*/ gql`
     query getBlankExperienceMetaData($key: String!, $version: String) {
   BlankExperience(where: {_metadata: {key: {eq: $key}, version: {eq: $version}}}) {
@@ -376,16 +413,11 @@ export const getBlankExperienceMetaDataDocument = /*#__PURE__*/ gql`
 }
     `;
 export const getArticleGroupPageItemsDocument = /*#__PURE__*/ gql`
-    query getArticleGroupPageItems($key: String!, $locale: [Locales], $pageSize: Int, $skip: Int, $orderBy: ArticlePageOrderByInput) {
+    query getArticleGroupPageItems($key: String!, $locale: [Locales], $pageSize: Int, $skip: Int) {
   group: ArticleGroupPage(where: {_metadata: {key: {eq: $key}}}, locale: $locale) {
     data: items {
       children: _link(type: ITEMS) {
-        listing: ArticlePage(
-          limit: $pageSize
-          orderBy: $orderBy
-          locale: $locale
-          skip: $skip
-        ) {
+        listing: ArticlePage(limit: $pageSize, locale: $locale, skip: $skip) {
           total
           items {
             ...IContentData
@@ -516,6 +548,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     getContentByPath(variables: Schema.getContentByPathQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getContentByPathQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getContentByPathQuery>(getContentByPathDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getContentByPath', 'query', variables);
+    },
+    getArticleListElementItems(variables?: Schema.getArticleListElementItemsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getArticleListElementItemsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getArticleListElementItemsQuery>(getArticleListElementItemsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getArticleListElementItems', 'query', variables);
     },
     getBlankExperienceMetaData(variables: Schema.getBlankExperienceMetaDataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getBlankExperienceMetaDataQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getBlankExperienceMetaDataQuery>(getBlankExperienceMetaDataDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getBlankExperienceMetaData', 'query', variables);

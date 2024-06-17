@@ -12,9 +12,12 @@ import "./globals.scss"
 const figtree = Figtree({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "Mosey Bank - An Optimizely Demo Company",
     description: "An Optimizely demo website",
-    keywords: "Mosey bank, Mosey, Optimizely, Demo"
+    keywords: "Mosey bank, Mosey, Optimizely, Demo",
+    title: {
+        default: "Mosey Bank - An Optimizely Demo",
+        template: "%s - An Optimizely Demo"
+    }
 };
 
 type RootLayoutProps = Readonly<PropsWithChildren<{}>>

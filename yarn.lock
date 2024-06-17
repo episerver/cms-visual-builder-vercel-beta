@@ -905,7 +905,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/add@npm:^5.0.2, @graphql-codegen/add@npm:^5.0.3":
+"@graphql-codegen/add@npm:^5.0.3":
   version: 5.0.3
   resolution: "@graphql-codegen/add@npm:5.0.3"
   dependencies:
@@ -971,7 +971,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/client-preset@npm:^4.2.2, @graphql-codegen/client-preset@npm:^4.2.6, @graphql-codegen/client-preset@npm:^4.3.0":
+"@graphql-codegen/client-preset@npm:^4.2.2, @graphql-codegen/client-preset@npm:^4.3.0":
   version: 4.3.0
   resolution: "@graphql-codegen/client-preset@npm:4.3.0"
   dependencies:
@@ -2371,7 +2371,7 @@ __metadata:
 
 "@remkoj/optimizely-cms-cli@file:packages/dist/@remkoj-optimizely-cms-cli-dev.tgz::locator=cms-visual-builder-vercel-demo%40workspace%3A.":
   version: 2.0.0-pre6
-  resolution: "@remkoj/optimizely-cms-cli@file:packages/dist/@remkoj-optimizely-cms-cli-dev.tgz#packages/dist/@remkoj-optimizely-cms-cli-dev.tgz::hash=351edb&locator=cms-visual-builder-vercel-demo%40workspace%3A."
+  resolution: "@remkoj/optimizely-cms-cli@file:packages/dist/@remkoj-optimizely-cms-cli-dev.tgz#packages/dist/@remkoj-optimizely-cms-cli-dev.tgz::hash=a7d7c4&locator=cms-visual-builder-vercel-demo%40workspace%3A."
   dependencies:
     chalk: "npm:^5.3.0"
     cli-table3: "npm:^0.6.5"
@@ -2384,29 +2384,29 @@ __metadata:
     "@remkoj/optimizely-cms-api": 2.0.0-pre6
   bin:
     opti-cms: ./dist/index.js
-  checksum: 10/2d87caba5f7bf547121ea337fe81a4f8bfa0bd6b140efc260a83b99d1fb4d00769bfd001e51ba0ec26cc22ab58050346e20a441d4296f8777f9f60ca25502e5b
+  checksum: 10/3fa63a2ed8277394bb2ee0f1c53c8ceb303ad983d06a8cd157e9a6bce2883337b4583fd0d7c5e1c78fb5a65f38f14b9e32120dddf43783c3ebf4ee33cd7e7e44
   languageName: node
   linkType: hard
 
 "@remkoj/optimizely-cms-nextjs@file:packages/dist/@remkoj-optimizely-cms-nextjs-dev.tgz::locator=cms-visual-builder-vercel-demo%40workspace%3A.":
   version: 2.0.0-pre6
-  resolution: "@remkoj/optimizely-cms-nextjs@file:packages/dist/@remkoj-optimizely-cms-nextjs-dev.tgz#packages/dist/@remkoj-optimizely-cms-nextjs-dev.tgz::hash=588623&locator=cms-visual-builder-vercel-demo%40workspace%3A."
+  resolution: "@remkoj/optimizely-cms-nextjs@file:packages/dist/@remkoj-optimizely-cms-nextjs-dev.tgz#packages/dist/@remkoj-optimizely-cms-nextjs-dev.tgz::hash=84eb21&locator=cms-visual-builder-vercel-demo%40workspace%3A."
   dependencies:
     deepmerge: "npm:^4.3.1"
   peerDependencies:
     "@remkoj/optimizely-cms-react": 2.0.0-pre6
     "@remkoj/optimizely-graph-client": 2.0.0-pre6
-    graphql: ^16.8.1
-    graphql-request: ^6.1.0
-    next: ^14.2.3
-    react: ^18.3.1
-  checksum: 10/5a324f2fea8d42e0b52fea45834eb93e47cec923f40ebf9a9bb7832d4ee8fd78c18d46714b7c50716bf7e3195f865f2e1e8e0faa057be5cb5ac9195450da897f
+    graphql: ^16
+    graphql-request: ^6
+    next: ^14
+    react: ^18
+  checksum: 10/4c7055c027b5ec8284922987c313e161feb3f03fb8da4cfd62686ff7a0a82d947a028e0f698a27460920863044a63dbd2c113f419148059e29377bc8b99d506c
   languageName: node
   linkType: hard
 
 "@remkoj/optimizely-cms-react@file:packages/dist/@remkoj-optimizely-cms-react-dev.tgz::locator=cms-visual-builder-vercel-demo%40workspace%3A.":
   version: 2.0.0-pre6
-  resolution: "@remkoj/optimizely-cms-react@file:packages/dist/@remkoj-optimizely-cms-react-dev.tgz#packages/dist/@remkoj-optimizely-cms-react-dev.tgz::hash=ccf31e&locator=cms-visual-builder-vercel-demo%40workspace%3A."
+  resolution: "@remkoj/optimizely-cms-react@file:packages/dist/@remkoj-optimizely-cms-react-dev.tgz#packages/dist/@remkoj-optimizely-cms-react-dev.tgz::hash=8e78b4&locator=cms-visual-builder-vercel-demo%40workspace%3A."
   dependencies:
     "@graphql-typed-document-node/core": "npm:^3.2.0"
     crypto-js: "npm:^4.2.0"
@@ -2417,13 +2417,13 @@ __metadata:
     graphql-request: ^6.1.0
     react: "*"
     react-dom: "*"
-  checksum: 10/33b2714a061f00c1d9c06154f913d0adc1bcf43708a64c23258f898c5c59cf71083ba6964fe69386f4d046cede9cd5735d13b89210fc19919d90c35f65d2a102
+  checksum: 10/8665fb3c1d471a2e086455ca39aa148b79756ed1d025e81153f417d7998af93969607d164450bf2d10e959e08a4dfb14500d51b0aef34526ea2068455c65c2fd
   languageName: node
   linkType: hard
 
 "@remkoj/optimizely-graph-cli@file:packages/dist/@remkoj-optimizely-graph-cli-dev.tgz::locator=cms-visual-builder-vercel-demo%40workspace%3A.":
   version: 2.0.0-pre6
-  resolution: "@remkoj/optimizely-graph-cli@file:packages/dist/@remkoj-optimizely-graph-cli-dev.tgz#packages/dist/@remkoj-optimizely-graph-cli-dev.tgz::hash=15ed20&locator=cms-visual-builder-vercel-demo%40workspace%3A."
+  resolution: "@remkoj/optimizely-graph-cli@file:packages/dist/@remkoj-optimizely-graph-cli-dev.tgz#packages/dist/@remkoj-optimizely-graph-cli-dev.tgz::hash=7499db&locator=cms-visual-builder-vercel-demo%40workspace%3A."
   dependencies:
     chalk: "npm:^5.3.0"
     cli-table3: "npm:^0.6.5"
@@ -2435,27 +2435,27 @@ __metadata:
     "@remkoj/optimizely-graph-client": 2.0.0-pre6
   bin:
     opti-graph: bin/index.js
-  checksum: 10/de285e08d4379773d7e619511f31e847458e42abd32a8a667923436800930b650db58ea4b70875d32f0674c8abbd8b6f4ab62c7165ffeb374dc82ffee32a8098
+  checksum: 10/483a0f560dbd17f4dea7704ed4cc5df3729fe44f972f8fdf39af5a78eec61abd689ea00f3094c2594816cf7f257aaae50237186e9606eb6aafe68c7a072e99f8
   languageName: node
   linkType: hard
 
 "@remkoj/optimizely-graph-client@file:packages/dist/@remkoj-optimizely-graph-client-dev.tgz::locator=cms-visual-builder-vercel-demo%40workspace%3A.":
   version: 2.0.0-pre6
-  resolution: "@remkoj/optimizely-graph-client@file:packages/dist/@remkoj-optimizely-graph-client-dev.tgz#packages/dist/@remkoj-optimizely-graph-client-dev.tgz::hash=55f606&locator=cms-visual-builder-vercel-demo%40workspace%3A."
+  resolution: "@remkoj/optimizely-graph-client@file:packages/dist/@remkoj-optimizely-graph-client-dev.tgz#packages/dist/@remkoj-optimizely-graph-client-dev.tgz::hash=35e85f&locator=cms-visual-builder-vercel-demo%40workspace%3A."
   dependencies:
     crypto-js: "npm:^4.2.0"
   peerDependencies:
     graphql-request: ^6.1.0
-  checksum: 10/a319c94effa4820451fd4fb05a433b4d1e80b9657b84aaee3e3a957f92cd6d7bfa055b5311272621a105ef0c8fa8cd69ab0da755f2917d9c3241ee30343f308f
+  checksum: 10/135cc9fbb3f60197aa4c1b8510352fc77e16620820fb547c5391ab172f04d2824adab58a3fad8d5d7ede22bee28eb40d9f4c87146e62757ae1b29ed6e51e205a
   languageName: node
   linkType: hard
 
 "@remkoj/optimizely-graph-functions@file:packages/dist/@remkoj-optimizely-graph-functions-dev.tgz::locator=cms-visual-builder-vercel-demo%40workspace%3A.":
   version: 2.0.0-pre6
-  resolution: "@remkoj/optimizely-graph-functions@file:packages/dist/@remkoj-optimizely-graph-functions-dev.tgz#packages/dist/@remkoj-optimizely-graph-functions-dev.tgz::hash=c9b178&locator=cms-visual-builder-vercel-demo%40workspace%3A."
+  resolution: "@remkoj/optimizely-graph-functions@file:packages/dist/@remkoj-optimizely-graph-functions-dev.tgz#packages/dist/@remkoj-optimizely-graph-functions-dev.tgz::hash=a1f52d&locator=cms-visual-builder-vercel-demo%40workspace%3A."
   dependencies:
-    "@graphql-codegen/add": "npm:^5.0.2"
-    "@graphql-codegen/client-preset": "npm:^4.2.6"
+    "@graphql-codegen/add": "npm:^5.0.3"
+    "@graphql-codegen/client-preset": "npm:^4.3.0"
     "@graphql-codegen/plugin-helpers": "npm:^5.0.4"
     "@graphql-codegen/typescript": "npm:^4.0.7"
     "@graphql-codegen/typescript-graphql-request": "npm:^6.2.0"
@@ -2470,7 +2470,7 @@ __metadata:
   dependenciesMeta:
     "@remkoj/optimizely-graph-client":
       optional: true
-  checksum: 10/7c0f70b4f0a69f8922fa08cc47d7c5e7c3ecb1dc4fde34e76adb8b994440d65b1e392b834eaa7f8d5d1f154250b59a75d081f66a753a980cadb0c44c5eb6a475
+  checksum: 10/b9d1711ebf7f80d8b19dcc9a7bb26875f1f0f200178671eeb560be24ef24aafb670bc499acaf538f439439a6c51055f6d5c9097ee9314f06a021120a6f9ba1ca
   languageName: node
   linkType: hard
 
