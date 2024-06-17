@@ -375,6 +375,7 @@ export const getArticleListElementItemsDocument = /*#__PURE__*/ gql`
     orderBy: {_metadata: {published: DESC}}
     limit: $count
     locale: $locale
+    where: {_metadata: {status: {eq: "Published"}}}
   ) {
     items {
       ...IContentData
@@ -417,7 +418,12 @@ export const getArticleGroupPageItemsDocument = /*#__PURE__*/ gql`
   group: ArticleGroupPage(where: {_metadata: {key: {eq: $key}}}, locale: $locale) {
     data: items {
       children: _link(type: ITEMS) {
-        listing: ArticlePage(limit: $pageSize, locale: $locale, skip: $skip) {
+        listing: ArticlePage(
+          limit: $pageSize
+          locale: $locale
+          skip: $skip
+          where: {_metadata: {status: {eq: "Published"}}}
+        ) {
           total
           items {
             ...IContentData

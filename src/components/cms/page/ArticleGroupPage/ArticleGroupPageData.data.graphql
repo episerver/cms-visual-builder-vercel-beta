@@ -7,8 +7,9 @@ query getArticleGroupPageItems($key: String!, $locale: [Locales], $pageSize: Int
       children: _link(type: ITEMS) {
         listing: ArticlePage (
           limit: $pageSize
-    			locale: $locale
+          locale: $locale
           skip: $skip
+          where: { _metadata: { status: { eq: "Published" } } }
         ) {
           total
           items {
