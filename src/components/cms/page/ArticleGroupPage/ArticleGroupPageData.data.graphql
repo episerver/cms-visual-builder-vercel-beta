@@ -1,4 +1,4 @@
-query getArticleGroupPageItems($key: String!, $locale: [Locales], $pageSize: Int, $skip: Int, $orderBy: ArticlePageOrderByInput) {
+query getArticleGroupPageItems($key: String!, $locale: [Locales], $pageSize: Int, $skip: Int) {
   group: ArticleGroupPage(
     where: { _metadata: { key: { eq: $key } } }
     locale: $locale
@@ -7,7 +7,6 @@ query getArticleGroupPageItems($key: String!, $locale: [Locales], $pageSize: Int
       children: _link(type: ITEMS) {
         listing: ArticlePage (
           limit: $pageSize
-          orderBy: $orderBy
     			locale: $locale
           skip: $skip
         ) {

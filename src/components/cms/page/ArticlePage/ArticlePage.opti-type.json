@@ -1,0 +1,97 @@
+{
+  "key": "ArticlePage",
+  "displayName": "Article",
+  "description": "",
+  "baseType": "page",
+  "source": "",
+  "sortOrder": 100,
+  "features": [
+    "localization",
+    "versioning",
+    "publishPeriod",
+    "routing"
+  ],
+  "usage": [
+    "instance"
+  ],
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "created": "2024-05-07T11:33:52.5292802+00:00",
+  "lastModified": "2024-06-13T16:38:39.8419415+00:00",
+  "lastModifiedBy": "remko.jantzen@optimizely.com",
+  "properties": {
+    "articleSeoSettings": {
+      "type": "component",
+      "contentType": "PageSeoSettings",
+      "displayName": "SEO Settings",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "SeoData",
+      "sortOrder": 10,
+      "editorSettings": {}
+    },
+    "articleHeroImage": {
+      "type": "contentReference",
+      "displayName": "Hero Image",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 10,
+      "editorSettings": {},
+      "allowedTypes": [
+        "Image"
+      ],
+      "restrictedTypes": []
+    },
+    "articleSummary": {
+      "type": "string",
+      "format": "html",
+      "displayName": "Teaser",
+      "description": "",
+      "localized": true,
+      "required": false,
+      "group": "Preview",
+      "sortOrder": 10,
+      "editorSettings": {}
+    },
+    "articleTitle": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Title",
+      "description": "",
+      "localized": true,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 20,
+      "editorSettings": {}
+    },
+    "articleAuthors": {
+      "type": "array",
+      "displayName": "Author(s)",
+      "description": "",
+      "localized": false,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 30,
+      "editorSettings": {},
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "format": "shortString"
+      }
+    },
+    "articleBody": {
+      "type": "string",
+      "format": "html",
+      "displayName": "Content",
+      "description": "",
+      "localized": true,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 40,
+      "editorSettings": {}
+    }
+  }
+}

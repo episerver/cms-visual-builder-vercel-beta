@@ -1,0 +1,29 @@
+query getArticleListElementItems($count: Int, $locale: [Locales])
+{
+  ArticlePage (
+    orderBy: {
+      _metadata: {
+        published: DESC
+      }
+    }
+    limit: $count
+    locale: $locale
+  ) {
+    items {
+  		...IContentData
+      articleTitle
+      articleMeta: _metadata {
+        key
+        published
+        lastModified
+      }
+      articleAuthors
+      articleSummary {
+        json
+      }
+      articleHeroImage {
+        ...ReferenceData
+      }
+    }
+  }
+}

@@ -1,21 +1,22 @@
 // Auto generated dictionary
 import { ComponentTypeDictionary } from "@remkoj/optimizely-cms-react";
 //import componentComponents from "./component";
-//import elementComponents from "./element";
+import elementComponents from "./element";
 import experienceComponents from "./experience";
 import pageComponents from "./page";
 //import sectionComponents from "./section";
 
 //prefixDictionaryEntries(componentComponents, 'Component');
-//prefixDictionaryEntries(elementComponents, 'Element');
+prefixDictionaryEntries(elementComponents, 'Element');
+prefixDictionaryEntries(elementComponents, 'Component');  // Experiences are a subtype of component
 prefixDictionaryEntries(experienceComponents, 'Experience');
-prefixDictionaryEntries(experienceComponents, 'Page');
-prefixDictionaryEntries(pageComponents, 'Page');  // Experiences are a subtype of page
+prefixDictionaryEntries(experienceComponents, 'Page');  // Experiences are a subtype of page
+prefixDictionaryEntries(pageComponents, 'Page');
 //prefixDictionaryEntries(sectionComponents, 'Section');
 
 export const cmsComponentDictionary : ComponentTypeDictionary = [
 //    ...componentComponents,
-//    ...elementComponents,
+    ...elementComponents,
     ...experienceComponents,
     ...pageComponents,
 //    ...sectionComponents,
