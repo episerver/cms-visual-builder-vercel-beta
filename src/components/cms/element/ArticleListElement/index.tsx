@@ -9,12 +9,12 @@ import { getLabel } from '@/labels'
 import { RichText } from '@remkoj/optimizely-cms-react/components'
 import { getServerContext } from '@remkoj/optimizely-cms-react/rsc'
 
-export const ArticleListElement : CmsComponent<ArticleListElementDataFragment> = async ({ data: { articleListCount }, contentLink: { locale } }) => 
+export const ArticleListElement : CmsComponent<ArticleListElementDataFragment> = async ({ data: { articleListCount = 3 }, contentLink: { locale } }) => 
 {
     const { factory } = getServerContext()
     const sdk = getSdk()
     const articles = ((await sdk.getArticleListElementItems({ 
-        count: articleListCount,
+        count: articleListCount || 3,
         locale: locale as InputMaybe<Locales> | undefined
     }))?.ArticlePage?.items ?? []).filter(isNotNullOrUndefined)
     const byLabel = await getLabel('By', { locale, fallback: 'By'})
