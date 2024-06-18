@@ -78,6 +78,10 @@
     "@remkoj/optimizely-graph-client": "file:packages/dist/@remkoj-optimizely-graph-client-dev.tgz",
     "@remkoj/optimizely-graph-cli": "file:packages/dist/@remkoj-optimizely-graph-cli-dev.tgz",
     "@remkoj/optimizely-graph-functions": "file:packages/dist/@remkoj-optimizely-graph-functions-dev.tgz",
-    "@remkoj/optimizely-one-nextjs": "file:packages/dist/@remkoj-optimizely-one-nextjs-dev.tgz"
+    "@remkoj/optimizely-one-nextjs": "file:packages/dist/@remkoj-optimizely-one-nextjs-dev.tgz",
+    "tar": "^6.2",
+    "semver": "^7.5",
+    "undici": "^6.19",
+    "debug": "^4.3"
   }
 }
