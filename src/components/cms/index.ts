@@ -16,7 +16,7 @@ export const cmsComponentDictionary : ComponentTypeDictionary = [
     ...componentComponents,
     ...elementComponents,
     ...experienceComponents,
-    ...pageComponents
+    ...pageComponents,
 ]
 
 export default cmsComponentDictionary

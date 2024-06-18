@@ -142,29 +142,6 @@ export const BlankExperienceDataFragmentDoc = /*#__PURE__*/ gql`
   ...ExperienceData
 }
     `;
-export const OfficeLocationDataFragmentDoc = /*#__PURE__*/ gql`
-    fragment OfficeLocationData on OfficeLocation {
-  title: OfficeTitle
-  street1: OfficeAddressStreet1
-  street2: OfficeAddressStreet2
-  postalcode: OfficeAddressPostalCode
-  city: OfficeAddressCity
-  country: OfficeAddressCountry
-  phone: OfficePhone
-  email: OfficeEmail
-}
-    `;
-export const ButtonBlockDataFragmentDoc = /*#__PURE__*/ gql`
-    fragment ButtonBlockData on ButtonBlock {
-  text
-  link {
-    ...LinkData
-  }
-  className
-  buttonType
-  variant
-}
-    `;
 export const ButtonBlockPropertyDataFragmentDoc = /*#__PURE__*/ gql`
     fragment ButtonBlockPropertyData on ButtonBlockProperty {
   text
@@ -194,6 +171,29 @@ export const CardBlockDataFragmentDoc = /*#__PURE__*/ gql`
   }
   color: CardColor
   layout: CardImageLayout
+}
+    `;
+export const OfficeLocationDataFragmentDoc = /*#__PURE__*/ gql`
+    fragment OfficeLocationData on OfficeLocation {
+  title: OfficeTitle
+  street1: OfficeAddressStreet1
+  street2: OfficeAddressStreet2
+  postalcode: OfficeAddressPostalCode
+  city: OfficeAddressCity
+  country: OfficeAddressCountry
+  phone: OfficePhone
+  email: OfficeEmail
+}
+    `;
+export const ButtonBlockDataFragmentDoc = /*#__PURE__*/ gql`
+    fragment ButtonBlockData on ButtonBlock {
+  text
+  link {
+    ...LinkData
+  }
+  className
+  buttonType
+  variant
 }
     `;
 export const LinkItemDataFragmentDoc = /*#__PURE__*/ gql`
@@ -231,9 +231,9 @@ export const MegaMenuGroupBlockDataFragmentDoc = /*#__PURE__*/ gql`
 export const BlockDataFragmentDoc = /*#__PURE__*/ gql`
     fragment BlockData on _IContent {
   ...IContentData
+  ...CardBlockData
   ...OfficeLocationData
   ...ButtonBlockData
-  ...CardBlockData
   ...MegaMenuGroupBlockData
   ...NavigationMenuBlockData
 }
@@ -312,11 +312,11 @@ export const getContentByIdDocument = /*#__PURE__*/ gql`
 ${IContentDataFragmentDoc}
 ${IContentInfoFragmentDoc}
 ${LinkDataFragmentDoc}
-${OfficeLocationDataFragmentDoc}
-${ButtonBlockDataFragmentDoc}
 ${CardBlockDataFragmentDoc}
 ${ReferenceDataFragmentDoc}
 ${ButtonBlockPropertyDataFragmentDoc}
+${OfficeLocationDataFragmentDoc}
+${ButtonBlockDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
 ${NavigationMenuBlockDataFragmentDoc}
 ${LinkItemDataFragmentDoc}
@@ -364,10 +364,10 @@ ${ParagraphElementDataFragmentDoc}
 ${TestimonialElementDataFragmentDoc}
 ${ArticleGroupPageDataFragmentDoc}
 ${BlockDataFragmentDoc}
-${OfficeLocationDataFragmentDoc}
-${ButtonBlockDataFragmentDoc}
 ${CardBlockDataFragmentDoc}
 ${ButtonBlockPropertyDataFragmentDoc}
+${OfficeLocationDataFragmentDoc}
+${ButtonBlockDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
 ${NavigationMenuBlockDataFragmentDoc}
 ${LinkItemDataFragmentDoc}
