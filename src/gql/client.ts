@@ -142,6 +142,18 @@ export const BlankExperienceDataFragmentDoc = /*#__PURE__*/ gql`
   ...ExperienceData
 }
     `;
+export const OfficeLocationDataFragmentDoc = /*#__PURE__*/ gql`
+    fragment OfficeLocationData on OfficeLocation {
+  title: OfficeTitle
+  street1: OfficeAddressStreet1
+  street2: OfficeAddressStreet2
+  postalcode: OfficeAddressPostalCode
+  city: OfficeAddressCity
+  country: OfficeAddressCountry
+  phone: OfficePhone
+  email: OfficeEmail
+}
+    `;
 export const ButtonBlockDataFragmentDoc = /*#__PURE__*/ gql`
     fragment ButtonBlockData on ButtonBlock {
   text
@@ -219,6 +231,7 @@ export const MegaMenuGroupBlockDataFragmentDoc = /*#__PURE__*/ gql`
 export const BlockDataFragmentDoc = /*#__PURE__*/ gql`
     fragment BlockData on _IContent {
   ...IContentData
+  ...OfficeLocationData
   ...ButtonBlockData
   ...CardBlockData
   ...MegaMenuGroupBlockData
@@ -267,18 +280,6 @@ export const MenuContentFragmentDoc = /*#__PURE__*/ gql`
   }
 }
     `;
-export const OfficeLocationDataFragmentDoc = /*#__PURE__*/ gql`
-    fragment OfficeLocationData on OfficeLocation {
-  title: OfficeTitle
-  street1: OfficeAddressStreet1
-  street2: OfficeAddressStreet2
-  postalcode: OfficeAddressPostalCode
-  city: OfficeAddressCity
-  country: OfficeAddressCountry
-  phone: OfficePhone
-  email: OfficeEmail
-}
-    `;
 export const getContentTypeDocument = /*#__PURE__*/ gql`
     query getContentType($key: String!, $version: String, $locale: [Locales!], $path: String, $domain: String) {
   content: _Content(
@@ -311,6 +312,7 @@ export const getContentByIdDocument = /*#__PURE__*/ gql`
 ${IContentDataFragmentDoc}
 ${IContentInfoFragmentDoc}
 ${LinkDataFragmentDoc}
+${OfficeLocationDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CardBlockDataFragmentDoc}
 ${ReferenceDataFragmentDoc}
@@ -362,6 +364,7 @@ ${ParagraphElementDataFragmentDoc}
 ${TestimonialElementDataFragmentDoc}
 ${ArticleGroupPageDataFragmentDoc}
 ${BlockDataFragmentDoc}
+${OfficeLocationDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${CardBlockDataFragmentDoc}
 ${ButtonBlockPropertyDataFragmentDoc}

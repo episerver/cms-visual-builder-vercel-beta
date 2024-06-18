@@ -31,15 +31,3 @@ fragment MenuContent on NavigationMenuBlockProperty {
     ...LinkItemData
   }
 }
-
-fragment OfficeLocationData on OfficeLocation 
-{
-  title: OfficeTitle
-  street1: OfficeAddressStreet1
-  street2: OfficeAddressStreet2
-  postalcode: OfficeAddressPostalCode
-  city: OfficeAddressCity
-  country: OfficeAddressCountry
-  phone: OfficePhone
-  email: OfficeEmail
-}
