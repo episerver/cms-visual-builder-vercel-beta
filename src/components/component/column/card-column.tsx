@@ -21,16 +21,16 @@ export const CardColumn : CmsLayoutComponent<LayoutProps<typeof CardColumnStyles
             innerCssClasses.push("text-white prose-h3:text-white prose-h2:text-white prose-figcaption:text-white prose-blockquote:text-white");
             break;
         case "dark_blue":
-            outerCssClasses.push("bg-vulcan");
+            outerCssClasses.push("bg-vulcan dark:bg-vulcan-85");
             innerCssClasses.push("text-white prose-h3:text-white prose-h2:text-white prose-figcaption:text-white prose-blockquote:text-white");
             break;
         case "orange":
             outerCssClasses.push("bg-tangy dark:bg-transparent dark:border-tangy dark:border-4");
-            innerCssClasses.push("text-vulcan prose-h3:text-vulcan prose-h2:text-vulcan prose-figcaption:text-vulcan prose-blockquote:text-vulcan");
+            innerCssClasses.push("text-vulcan prose-blockquote:text-vulcan prose-figcaption:text-vulcan dark:text-ghost-white dark:prose-blockquote:text-ghost-white dark:prose-figcaption:text-ghost-white");
             break;
         case "green":
             outerCssClasses.push("bg-verdansk dark:bg-transparent dark:border-verdansk dark:border-4");
-            innerCssClasses.push("text-vulcan prose-h3:text-vulcan prose-h2:text-vulcan prose-figcaption:text-vulcan prose-blockquote:text-vulcan");
+            innerCssClasses.push("text-vulcan prose-blockquote:text-vulcan prose-figcaption:text-vulcan dark:text-ghost-white dark:prose-blockquote:text-ghost-white dark:prose-figcaption:text-ghost-white");
             break;
         case "red":
             outerCssClasses.push("bg-paleruby dark:bg-transparent dark:border-paleruby dark:border-4");

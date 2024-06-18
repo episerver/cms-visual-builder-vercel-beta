@@ -81,10 +81,7 @@ export default function Header({ menuItems, utilityItems, logoItem, labels = {} 
           <Logo ref={ logoRef } logoItem={ logoItem }/>
 
           <div className="lg:hidden">
-            <button
-              className="btn btn--secondary"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
+            <button className="btn btn--secondary ml-[10px]" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} >
               <div className="btn__content">
                 {mobileMenuOpen ? extractLabel(labels, "close", { fallback: "CLOSE" }) : extractLabel(labels, "menu", { fallback: "MENU" })}
               </div>

@@ -4,6 +4,7 @@ import { HeaderContext } from "../_header"
 import Button, { type ButtonProps } from "@/components/shared/button"
 import { type Schema } from "@/gql"
 import { contentLinkToString, type ContentLink, type InlineContentLink } from "@remkoj/optimizely-graph-client"
+import ThemePicker from "./_themepicker"
 
 function isButtonBlockFragment(toTest: any) : toTest is (Schema.IContentDataFragment & Schema.ButtonBlockDataFragment)
 {
@@ -19,6 +20,7 @@ const SecondaryMenu = forwardRef<HTMLUListElement>((props, ref) => {
     if (!utilityItems) return null;
     return (
         <ul ref={ref} className="flex items-center justify-end gap-4">
+            <li><ThemePicker /></li>
             { utilityItems
                 .filter(isButtonBlockFragment)
                 .map((item) => {
