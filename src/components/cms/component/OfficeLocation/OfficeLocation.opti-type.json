@@ -1,0 +1,114 @@
+{
+  "key": "OfficeLocation",
+  "displayName": "Office Location",
+  "description": "",
+  "baseType": "component",
+  "source": "",
+  "sortOrder": 100,
+  "features": [
+    "localization",
+    "versioning",
+    "publishPeriod"
+  ],
+  "usage": [
+    "property",
+    "instance"
+  ],
+  "mayContainTypes": [
+    "OfficeLocation"
+  ],
+  "mediaFileExtensions": [],
+  "created": "2024-05-10T07:52:56.1405025+00:00",
+  "lastModified": "2024-05-10T08:01:40.5173425+00:00",
+  "lastModifiedBy": "remko.jantzen@optimizely.com",
+  "properties": {
+    "OfficeTitle": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Title",
+      "description": "",
+      "localized": true,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 10,
+      "editorSettings": {}
+    },
+    "OfficeAddressStreet1": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Address (1st Line)",
+      "description": "",
+      "localized": false,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 20,
+      "editorSettings": {}
+    },
+    "OfficeAddressStreet2": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Address (2nd Line)",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 30,
+      "editorSettings": {}
+    },
+    "OfficeAddressCity": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "City",
+      "description": "",
+      "localized": false,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 40,
+      "editorSettings": {}
+    },
+    "OfficeAddressPostalCode": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Postal code",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 50,
+      "editorSettings": {}
+    },
+    "OfficeAddressCountry": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Country",
+      "description": "",
+      "localized": false,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 60,
+      "editorSettings": {}
+    },
+    "OfficePhone": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "Phone number",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 70,
+      "editorSettings": {}
+    },
+    "OfficeEmail": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "E-Mail address",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 80,
+      "editorSettings": {}
+    }
+  }
+}

@@ -142,17 +142,6 @@ export const BlankExperienceDataFragmentDoc = /*#__PURE__*/ gql`
   ...ExperienceData
 }
     `;
-export const ButtonBlockDataFragmentDoc = /*#__PURE__*/ gql`
-    fragment ButtonBlockData on ButtonBlock {
-  text
-  link {
-    ...LinkData
-  }
-  className
-  buttonType
-  variant
-}
-    `;
 export const ButtonBlockPropertyDataFragmentDoc = /*#__PURE__*/ gql`
     fragment ButtonBlockPropertyData on ButtonBlockProperty {
   text
@@ -182,6 +171,29 @@ export const CardBlockDataFragmentDoc = /*#__PURE__*/ gql`
   }
   color: CardColor
   layout: CardImageLayout
+}
+    `;
+export const OfficeLocationDataFragmentDoc = /*#__PURE__*/ gql`
+    fragment OfficeLocationData on OfficeLocation {
+  title: OfficeTitle
+  street1: OfficeAddressStreet1
+  street2: OfficeAddressStreet2
+  postalcode: OfficeAddressPostalCode
+  city: OfficeAddressCity
+  country: OfficeAddressCountry
+  phone: OfficePhone
+  email: OfficeEmail
+}
+    `;
+export const ButtonBlockDataFragmentDoc = /*#__PURE__*/ gql`
+    fragment ButtonBlockData on ButtonBlock {
+  text
+  link {
+    ...LinkData
+  }
+  className
+  buttonType
+  variant
 }
     `;
 export const LinkItemDataFragmentDoc = /*#__PURE__*/ gql`
@@ -219,8 +231,9 @@ export const MegaMenuGroupBlockDataFragmentDoc = /*#__PURE__*/ gql`
 export const BlockDataFragmentDoc = /*#__PURE__*/ gql`
     fragment BlockData on _IContent {
   ...IContentData
-  ...ButtonBlockData
   ...CardBlockData
+  ...OfficeLocationData
+  ...ButtonBlockData
   ...MegaMenuGroupBlockData
   ...NavigationMenuBlockData
 }
@@ -267,18 +280,6 @@ export const MenuContentFragmentDoc = /*#__PURE__*/ gql`
   }
 }
     `;
-export const OfficeLocationDataFragmentDoc = /*#__PURE__*/ gql`
-    fragment OfficeLocationData on OfficeLocation {
-  title: OfficeTitle
-  street1: OfficeAddressStreet1
-  street2: OfficeAddressStreet2
-  postalcode: OfficeAddressPostalCode
-  city: OfficeAddressCity
-  country: OfficeAddressCountry
-  phone: OfficePhone
-  email: OfficeEmail
-}
-    `;
 export const getContentTypeDocument = /*#__PURE__*/ gql`
     query getContentType($key: String!, $version: String, $locale: [Locales!], $path: String, $domain: String) {
   content: _Content(
@@ -311,10 +312,11 @@ export const getContentByIdDocument = /*#__PURE__*/ gql`
 ${IContentDataFragmentDoc}
 ${IContentInfoFragmentDoc}
 ${LinkDataFragmentDoc}
-${ButtonBlockDataFragmentDoc}
 ${CardBlockDataFragmentDoc}
 ${ReferenceDataFragmentDoc}
 ${ButtonBlockPropertyDataFragmentDoc}
+${OfficeLocationDataFragmentDoc}
+${ButtonBlockDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
 ${NavigationMenuBlockDataFragmentDoc}
 ${LinkItemDataFragmentDoc}
@@ -362,9 +364,10 @@ ${ParagraphElementDataFragmentDoc}
 ${TestimonialElementDataFragmentDoc}
 ${ArticleGroupPageDataFragmentDoc}
 ${BlockDataFragmentDoc}
-${ButtonBlockDataFragmentDoc}
 ${CardBlockDataFragmentDoc}
 ${ButtonBlockPropertyDataFragmentDoc}
+${OfficeLocationDataFragmentDoc}
+${ButtonBlockDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
 ${NavigationMenuBlockDataFragmentDoc}
 ${LinkItemDataFragmentDoc}
@@ -375,6 +378,7 @@ export const getArticleListElementItemsDocument = /*#__PURE__*/ gql`
     orderBy: {_metadata: {published: DESC}}
     limit: $count
     locale: $locale
+    where: {_metadata: {status: {eq: "Published"}}}
   ) {
     items {
       ...IContentData
@@ -417,7 +421,12 @@ export const getArticleGroupPageItemsDocument = /*#__PURE__*/ gql`
   group: ArticleGroupPage(where: {_metadata: {key: {eq: $key}}}, locale: $locale) {
     data: items {
       children: _link(type: ITEMS) {
-        listing: ArticlePage(limit: $pageSize, locale: $locale, skip: $skip) {
+        listing: ArticlePage(
+          limit: $pageSize
+          locale: $locale
+          skip: $skip
+          where: {_metadata: {status: {eq: "Published"}}}
+        ) {
           total
           items {
             ...IContentData
@@ -457,7 +466,7 @@ export const getArticlePageMetaDataDocument = /*#__PURE__*/ gql`
     `;
 export const getFooterDocument = /*#__PURE__*/ gql`
     query getFooter {
-  footer: WebsiteFooter {
+  footer: WebsiteFooter(where: {_metadata: {status: {eq: "Published"}}}) {
     total
     items {
       address: FooterMainOfficeLocation {
@@ -489,7 +498,7 @@ ${LinkDataFragmentDoc}
 ${ReferenceDataFragmentDoc}`;
 export const getHeaderDocument = /*#__PURE__*/ gql`
     query getHeader {
-  menuItems: HeaderBlock {
+  menuItems: HeaderBlock(where: {_metadata: {status: {eq: "Published"}}}) {
     items {
       logo: site_logo {
         ...ReferenceData

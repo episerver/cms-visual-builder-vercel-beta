@@ -1,16 +1,12 @@
-query getArticleListElementItems($count: Int, $locale: [Locales])
-{
+query getArticleListElementItems($count: Int, $locale: [Locales]) {
   ArticlePage (
-    orderBy: {
-      _metadata: {
-        published: DESC
-      }
-    }
+    orderBy: { _metadata: { published: DESC } }
     limit: $count
     locale: $locale
+    where: { _metadata: { status: { eq: "Published" } } }
   ) {
     items {
-  		...IContentData
+      ...IContentData
       articleTitle
       articleMeta: _metadata {
         key

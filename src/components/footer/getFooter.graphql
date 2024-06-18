@@ -1,9 +1,9 @@
 query getFooter {
-  footer: WebsiteFooter {
+  footer: WebsiteFooter(where: { _metadata: { status: { eq: "Published" } } }) {
     total
     items {
       address: FooterMainOfficeLocation {
-      	...OfficeLocationData
+        ...OfficeLocationData
       }
       firstMenu: FooterFirstLinkList {
         ...MenuContent
@@ -30,16 +30,4 @@ fragment MenuContent on NavigationMenuBlockProperty {
   links: NavigationLinks {
     ...LinkItemData
   }
-}
-
-fragment OfficeLocationData on OfficeLocation 
-{
-  title: OfficeTitle
-  street1: OfficeAddressStreet1
-  street2: OfficeAddressStreet2
-  postalcode: OfficeAddressPostalCode
-  city: OfficeAddressCity
-  country: OfficeAddressCountry
-  phone: OfficePhone
-  email: OfficeEmail
 }

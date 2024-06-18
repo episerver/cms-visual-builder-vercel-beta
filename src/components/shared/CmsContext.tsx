@@ -4,16 +4,16 @@ import { createContext, useContext, useState, type FunctionComponent, type Props
 import { IOptiGraphClient } from "@remkoj/optimizely-graph-client"
 
 // To be internalized
-import { type GenericContext, type ComponentFactory } from "@remkoj/optimizely-cms-react"
+import { type GenericContext, type ComponentFactory, DefaultComponentFactory } from "@remkoj/optimizely-cms-react"
 
-const NoImplementationFactory : ComponentFactory = { has: () => false, register: () => {}, registerAll: () => {}, resolve: () => undefined }
+const defaultClientFactory = new DefaultComponentFactory()
 
 interface ClientContext extends GenericContext {
     readonly factory: ComponentFactory
 }
 
 const OptimizelyCmsContext = createContext<ClientContext>({
-    factory: NoImplementationFactory,
+    factory: defaultClientFactory,
     inEditMode: false,
     isDebug: false,
     isDebugOrDevelopment: false,
@@ -33,7 +33,7 @@ type ProviderProps = PropsWithChildren<{
     factory?: ComponentFactory
 }>
 
-export const OptimizelyCmsProvider : FunctionComponent<ProviderProps> = ({ children, debug, development, client, factory = NoImplementationFactory }) =>
+export const OptimizelyCmsProvider : FunctionComponent<ProviderProps> = ({ children, debug, development, client, factory = defaultClientFactory }) =>
 {
     const [locale, setLocale] = useState<string | undefined>()
 

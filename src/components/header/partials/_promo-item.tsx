@@ -16,7 +16,7 @@ export const PromoItem : FunctionComponent<PromoItemProps> = ({ heading, descrip
     const factory = new DefaultComponentFactory()
     factory.registerAll(DefaultComponents)
     return (
-      <article className="grid grid-cols-2 gap-12 max-w-[500px] bg-white rounded-[20px] p-12">
+      <article className="grid grid-cols-2 gap-12 max-w-[500px] bg-white dark:bg-vulcan rounded-[20px] p-12">
         <div className="prose">
           {heading && <h3 className="mb-4 leading-[1.5]">{heading}</h3>}
           {description && <RichText className="leading-[1.5]" text={ description.json } factory={ factory } />}

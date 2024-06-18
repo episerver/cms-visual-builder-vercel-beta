@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { HeaderContext } from "../_header";
 import { type NavigationMenuBlockDataFragment } from '@/gql/graphql'
 import { CmsLink as Link, createListKey } from '@/components/shared/cms_link'
+import ThemePicker from "./_themepicker";
 
 function applyFilter<T>(input?: T | null) : input is T
 {
@@ -23,7 +24,7 @@ export default function MobileMenu() {
   }
 
   return (
-    <section className="absolute pt-10 pb-20 z-50 top-[88px] left-0 bg-ghost-white w-full outer-padding shadow-[0_14px_4px_6px_rgba(0,0,0,0.1)]">
+    <section className="absolute pt-10 pb-20 z-50 top-[88px] left-0 bg-ghost-white w-full outer-padding shadow-[0_14px_4px_6px_rgba(0,0,0,0.1)] dark:bg-vulcan-85">
       <div className="container mx-auto grid">
         <ul>{
           menuItems.map(({ menuName, menuData }) => menuName && (
@@ -65,6 +66,9 @@ export default function MobileMenu() {
               </li>
             )
           )}
+          <li className="pt-10">
+            <ThemePicker />
+          </li>
         </ul>
       </div>
     </section>

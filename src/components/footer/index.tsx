@@ -26,7 +26,7 @@ export const MoseyBankFooter = async ({} : FooterProps) => {
     }
     const address = getFirstIfExists(footerInfo.address) as OfficeLocationDataFragment | undefined
     
-    return <footer className='bg-vulcan py-16 lg:py-32 outer-padding'>
+    return <footer className='bg-vulcan py-16 lg:py-32 outer-padding dark:bg-vulcan-85'>
         <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 text-white'>
             <div className='mb-16 col-span-2 lg:col-span-1'>
                 <section className="prose prose-h1:text-[12px] prose-h1:uppercase prose-h1:font-[400] prose-h1:tracking-[1px] prose-a:text-white prose-a:underline hover:prose-a:no-underline prose-a:not-italic">

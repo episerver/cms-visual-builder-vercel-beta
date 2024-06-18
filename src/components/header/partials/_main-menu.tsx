@@ -39,7 +39,7 @@ const DropdownMenu : FunctionComponent<DropdownMenuProps> = ({ menuName, menuDat
         {menuName}
       </button>
       {menuData && currentMenu === menuName ? (
-        <section className="outer-padding absolute pt-10 pb-20 z-50 top-[88px] left-0 bg-ghost-white w-full shadow-[0_14px_4px_6px_rgba(0,0,0,0.1)]">
+        <section className="outer-padding absolute pt-10 pb-20 z-50 top-[88px] left-0 bg-ghost-white w-full shadow-[0_14px_4px_6px_rgba(0,0,0,0.1)] dark:bg-vulcan-85">
           <div className={`container mx-auto grid ${gridColumnClass}`}>
             {menuData.map((menuList, index) => {
                 const itemKey = (menuList as Schema.NavigationMenuBlockDataFragment)?.title || "menuListItem"

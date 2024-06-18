@@ -27,11 +27,11 @@ export const CardRow : CmsLayoutComponent<LayoutProps<typeof CardRowLayoutProps>
             break;
         case "orange":
             additionalClasses.push("bg-tangy dark:bg-transparent dark:border-tangy dark:border-4");
-            innerClasses.push("text-vulcan prose-h3:text-vulcan prose-h2:text-vulcan");
+            innerClasses.push("text-vulcan prose-blockquote:text-vulcan prose-figcaption:text-vulcan dark:text-ghost-white dark:prose-blockquote:text-ghost-white dark:prose-figcaption:text-ghost-white");
             break;
         case "green":
             additionalClasses.push("bg-verdansk dark:bg-transparent dark:border-verdansk dark:border-4");
-            innerClasses.push("text-vulcan prose-h3:text-vulcan prose-h2:text-vulcan");
+            innerClasses.push("text-vulcan prose-blockquote:text-vulcan prose-figcaption:text-vulcan dark:text-ghost-white dark:prose-blockquote:text-ghost-white dark:prose-figcaption:text-ghost-white");
             break;
         case "red":
             additionalClasses.push("bg-paleruby dark:bg-transparent dark:border-paleruby dark:border-4");

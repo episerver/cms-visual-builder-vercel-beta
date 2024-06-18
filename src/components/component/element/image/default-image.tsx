@@ -6,7 +6,6 @@ import Animation from '@/components/shared/animation'
 
 // To be moved to library
 import Image from '@/components/shared/cms_image'
-import { CmsEditable } from '@remkoj/optimizely-cms-react/rsc'
 import { ImageComponent, DefaultImageLayoutProps } from './types'
 
 export const ImageElement : ImageComponent<ImageElementDataFragment, DefaultImageLayoutProps> = ({ data: { altText, imageLink }, layoutProps, ...props }) => {

@@ -9,12 +9,12 @@ import { getLabel } from '@/labels'
 import { RichText } from '@remkoj/optimizely-cms-react/components'
 import { getServerContext } from '@remkoj/optimizely-cms-react/rsc'
 
-export const ArticleListElement : CmsComponent<ArticleListElementDataFragment> = async ({ data: { articleListCount }, contentLink: { locale } }) => 
+export const ArticleListElement : CmsComponent<ArticleListElementDataFragment> = async ({ data: { articleListCount = 3 }, contentLink: { locale } }) => 
 {
     const { factory } = getServerContext()
     const sdk = getSdk()
     const articles = ((await sdk.getArticleListElementItems({ 
-        count: articleListCount,
+        count: articleListCount || 3,
         locale: locale as InputMaybe<Locales> | undefined
     }))?.ArticlePage?.items ?? []).filter(isNotNullOrUndefined)
     const byLabel = await getLabel('By', { locale, fallback: 'By'})
@@ -41,7 +41,7 @@ export const ArticleListElement : CmsComponent<ArticleListElementDataFragment> =
                             <p className="text-[12px] text-pale-sky my-0"><DateDisplay value={ article.articleMeta?.published ?? null } /></p>
                         </div>
                         <h3 className="my-0 mt-[16px]">{ article?.articleTitle ?? ''}</h3>
-                        { article?.articleSummary && <RichText factory={factory} text={ article?.articleSummary?.json } />}
+                        { article?.articleSummary && <RichText factory={ factory } text={ article?.articleSummary?.json } /> }
                     </article>
                 </CmsContentLink>
             </div>
