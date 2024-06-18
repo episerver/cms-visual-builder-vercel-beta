@@ -8,12 +8,12 @@ import type { ImageLayoutProps } from './types'
 import IconImageElement, { isIconImageLayout } from './icon-image'
 import DefaultImageElement from "./default-image"
 
-export const ImageElement : CmsComponent<ImageElementDataFragment, ImageLayoutProps> = ({ data, layoutProps }) =>
+export const ImageElement : CmsComponent<ImageElementDataFragment, ImageLayoutProps> = ({ data, layoutProps, contentLink }) =>
 {
     if (isIconImageLayout(layoutProps)) {
-        return <CmsEditable as={ IconImageElement } data={ data } layoutProps={ layoutProps }/>
+        return <CmsEditable as={ IconImageElement } data={ data } layoutProps={ layoutProps } cmsId={ contentLink.key }/>
     }
-    return <CmsEditable as={ DefaultImageElement } data={ data } layoutProps={layoutProps} />
+    return <CmsEditable as={ DefaultImageElement } data={ data } layoutProps={layoutProps} cmsId={ contentLink.key } />
 }
 ImageElement.getDataFragment = ()=>[ "ImageElementData", ImageElementDataFragmentDoc ]
 
