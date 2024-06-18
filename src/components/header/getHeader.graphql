@@ -1,5 +1,5 @@
 query getHeader {
-    menuItems: HeaderBlock {
+    menuItems: HeaderBlock(where: { _metadata: { status: { eq: "Published" } } }) {
         items {
             logo: site_logo {
                 ...ReferenceData

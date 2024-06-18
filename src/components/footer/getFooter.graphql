@@ -1,9 +1,9 @@
 query getFooter {
-  footer: WebsiteFooter {
+  footer: WebsiteFooter(where: { _metadata: { status: { eq: "Published" } } }) {
     total
     items {
       address: FooterMainOfficeLocation {
-      	...OfficeLocationData
+        ...OfficeLocationData
       }
       firstMenu: FooterFirstLinkList {
         ...MenuContent

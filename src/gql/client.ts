@@ -463,7 +463,7 @@ export const getArticlePageMetaDataDocument = /*#__PURE__*/ gql`
     `;
 export const getFooterDocument = /*#__PURE__*/ gql`
     query getFooter {
-  footer: WebsiteFooter {
+  footer: WebsiteFooter(where: {_metadata: {status: {eq: "Published"}}}) {
     total
     items {
       address: FooterMainOfficeLocation {
@@ -495,7 +495,7 @@ ${LinkDataFragmentDoc}
 ${ReferenceDataFragmentDoc}`;
 export const getHeaderDocument = /*#__PURE__*/ gql`
     query getHeader {
-  menuItems: HeaderBlock {
+  menuItems: HeaderBlock(where: {_metadata: {status: {eq: "Published"}}}) {
     items {
       logo: site_logo {
         ...ReferenceData
