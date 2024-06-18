@@ -41,7 +41,7 @@ export const ArticleListElement : CmsComponent<ArticleListElementDataFragment> =
                             <p className="text-[12px] text-pale-sky my-0"><DateDisplay value={ article.articleMeta?.published ?? null } /></p>
                         </div>
                         <h3 className="my-0 mt-[16px]">{ article?.articleTitle ?? ''}</h3>
-                        { article?.articleSummary && <RichText factory={factory} text={ article?.articleSummary?.json } />}
+                        { article?.articleSummary && <RichText factory={ factory } text={ article?.articleSummary?.json } /> }
                     </article>
                 </CmsContentLink>
             </div>

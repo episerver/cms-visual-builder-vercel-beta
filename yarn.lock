@@ -2383,7 +2383,7 @@ __metadata:
 
 "@remkoj/optimizely-cms-nextjs@file:packages/dist/@remkoj-optimizely-cms-nextjs-dev.tgz::locator=cms-visual-builder-vercel-demo%40workspace%3A.":
   version: 2.0.0-pre6
-  resolution: "@remkoj/optimizely-cms-nextjs@file:packages/dist/@remkoj-optimizely-cms-nextjs-dev.tgz#packages/dist/@remkoj-optimizely-cms-nextjs-dev.tgz::hash=84eb21&locator=cms-visual-builder-vercel-demo%40workspace%3A."
+  resolution: "@remkoj/optimizely-cms-nextjs@file:packages/dist/@remkoj-optimizely-cms-nextjs-dev.tgz#packages/dist/@remkoj-optimizely-cms-nextjs-dev.tgz::hash=7b4f9c&locator=cms-visual-builder-vercel-demo%40workspace%3A."
   dependencies:
     deepmerge: "npm:^4.3.1"
   peerDependencies:
@@ -2393,13 +2393,13 @@ __metadata:
     graphql-request: ^6
     next: ^14
     react: ^18
-  checksum: 10/4c7055c027b5ec8284922987c313e161feb3f03fb8da4cfd62686ff7a0a82d947a028e0f698a27460920863044a63dbd2c113f419148059e29377bc8b99d506c
+  checksum: 10/ab0788cf2794ddf7a1016a1e628494604ee0d3e744250a89e0e544e0d175d02a1bdaa26810eeaf369dbf7e7c337d553ed783fb5edc261b2aeede461deb8102ac
   languageName: node
   linkType: hard
 
 "@remkoj/optimizely-cms-react@file:packages/dist/@remkoj-optimizely-cms-react-dev.tgz::locator=cms-visual-builder-vercel-demo%40workspace%3A.":
   version: 2.0.0-pre6
-  resolution: "@remkoj/optimizely-cms-react@file:packages/dist/@remkoj-optimizely-cms-react-dev.tgz#packages/dist/@remkoj-optimizely-cms-react-dev.tgz::hash=8e78b4&locator=cms-visual-builder-vercel-demo%40workspace%3A."
+  resolution: "@remkoj/optimizely-cms-react@file:packages/dist/@remkoj-optimizely-cms-react-dev.tgz#packages/dist/@remkoj-optimizely-cms-react-dev.tgz::hash=1e1b6f&locator=cms-visual-builder-vercel-demo%40workspace%3A."
   dependencies:
     "@graphql-typed-document-node/core": "npm:^3.2.0"
     crypto-js: "npm:^4.2.0"
@@ -2410,7 +2410,7 @@ __metadata:
     graphql-request: ^6.1.0
     react: "*"
     react-dom: "*"
-  checksum: 10/8665fb3c1d471a2e086455ca39aa148b79756ed1d025e81153f417d7998af93969607d164450bf2d10e959e08a4dfb14500d51b0aef34526ea2068455c65c2fd
+  checksum: 10/179057e2d493f59fbc7594775616f9a1d054c5881fe03b57c5209958893517ebbec09cb7ebd2308a497e84db42a37a8969e2e10306f3d91f197fab31d273bac5
   languageName: node
   linkType: hard
 
