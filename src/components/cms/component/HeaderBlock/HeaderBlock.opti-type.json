@@ -1,0 +1,84 @@
+{
+  "key": "HeaderBlock",
+  "displayName": "Website header configuration",
+  "description": "Configure the header of the website",
+  "baseType": "component",
+  "source": "",
+  "sortOrder": 900,
+  "features": [
+    "localization",
+    "versioning",
+    "publishPeriod"
+  ],
+  "usage": [
+    "property",
+    "instance"
+  ],
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "created": "2024-04-17T08:59:52.01+00:00",
+  "lastModified": "2024-04-17T15:26:25.6+00:00",
+  "lastModifiedBy": "remko.jantzen@optimizely.com",
+  "properties": {
+    "site_logo": {
+      "type": "contentReference",
+      "displayName": "Logo",
+      "description": "The logo for this site",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 10,
+      "editorSettings": {},
+      "allowedTypes": [
+        "Image"
+      ],
+      "restrictedTypes": []
+    },
+    "site_logo_dark": {
+      "type": "contentReference",
+      "displayName": "Dark Mode Logo",
+      "description": "The logo for this site, when using dark-mode",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 11,
+      "editorSettings": {},
+      "allowedTypes": [
+        "Image"
+      ],
+      "restrictedTypes": []
+    },
+    "site_main_navigation": {
+      "type": "array",
+      "displayName": "Main navigation",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 100,
+      "editorSettings": {},
+      "items": {
+        "type": "content",
+        "allowedTypes": [
+          "MegaMenuGroupBlock"
+        ],
+        "restrictedTypes": []
+      }
+    },
+    "site_utility_navigation": {
+      "type": "array",
+      "displayName": "Utility navigation",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 200,
+      "editorSettings": {},
+      "items": {
+        "type": "content",
+        "allowedTypes": [],
+        "restrictedTypes": []
+      }
+    }
+  }
+}
