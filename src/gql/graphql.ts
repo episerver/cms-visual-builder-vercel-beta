@@ -971,6 +971,7 @@ export type CompositionStructureNodeWhereInput = {
 
 export type ContentMetadata = IContentMetadata & {
   __typename?: 'ContentMetadata';
+  created?: Maybe<Scalars['DateTime']['output']>;
   displayName?: Maybe<Scalars['String']['output']>;
   key?: Maybe<Scalars['String']['output']>;
   lastModified?: Maybe<Scalars['DateTime']['output']>;
@@ -1870,6 +1871,7 @@ export type ICompositionStructureNode = {
 };
 
 export type IContentMetadata = {
+  created?: Maybe<Scalars['DateTime']['output']>;
   displayName?: Maybe<Scalars['String']['output']>;
   key?: Maybe<Scalars['String']['output']>;
   lastModified?: Maybe<Scalars['DateTime']['output']>;
@@ -1928,6 +1930,7 @@ export type IContentMetadataAutocompleteversionArgs = {
 
 export type IContentMetadataFacet = {
   __typename?: 'IContentMetadataFacet';
+  created?: Maybe<Array<Maybe<DateFacet>>>;
   displayName?: Maybe<Array<Maybe<StringFacet>>>;
   key?: Maybe<Array<Maybe<StringFacet>>>;
   lastModified?: Maybe<Array<Maybe<DateFacet>>>;
@@ -1937,6 +1940,12 @@ export type IContentMetadataFacet = {
   types?: Maybe<Array<Maybe<StringFacet>>>;
   url?: Maybe<ContentUrlFacet>;
   version?: Maybe<Array<Maybe<StringFacet>>>;
+};
+
+
+export type IContentMetadataFacetcreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
 };
 
 
@@ -2000,6 +2009,7 @@ export type IContentMetadataFacetversionArgs = {
 };
 
 export type IContentMetadataOrderByInput = {
+  created?: InputMaybe<OrderBy>;
   displayName?: InputMaybe<OrderBy>;
   key?: InputMaybe<OrderBy>;
   lastModified?: InputMaybe<OrderBy>;
@@ -2012,6 +2022,7 @@ export type IContentMetadataOrderByInput = {
 };
 
 export type IContentMetadataWhereInput = {
+  created?: InputMaybe<DateFilterInput>;
   displayName?: InputMaybe<SearchableStringFilterInput>;
   key?: InputMaybe<StringFilterInput>;
   lastModified?: InputMaybe<DateFilterInput>;
@@ -2071,6 +2082,7 @@ export type IInstanceMetadatadisplayNameArgs = {
 };
 
 export type IItemMetadata = {
+  created?: Maybe<Scalars['DateTime']['output']>;
   displayName?: Maybe<Scalars['String']['output']>;
   displayOption?: Maybe<Scalars['String']['output']>;
   key?: Maybe<Scalars['String']['output']>;
@@ -2283,6 +2295,7 @@ export type InstanceMetadatadisplayNameArgs = {
 
 export type ItemMetadata = IContentMetadata & IItemMetadata & {
   __typename?: 'ItemMetadata';
+  created?: Maybe<Scalars['DateTime']['output']>;
   displayName?: Maybe<Scalars['String']['output']>;
   displayOption?: Maybe<Scalars['String']['output']>;
   key?: Maybe<Scalars['String']['output']>;

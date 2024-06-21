@@ -2399,7 +2399,7 @@ __metadata:
 
 "@remkoj/optimizely-cms-react@file:packages/dist/@remkoj-optimizely-cms-react-dev.tgz::locator=cms-visual-builder-vercel-demo%40workspace%3A.":
   version: 2.0.0-pre6
-  resolution: "@remkoj/optimizely-cms-react@file:packages/dist/@remkoj-optimizely-cms-react-dev.tgz#packages/dist/@remkoj-optimizely-cms-react-dev.tgz::hash=0b3280&locator=cms-visual-builder-vercel-demo%40workspace%3A."
+  resolution: "@remkoj/optimizely-cms-react@file:packages/dist/@remkoj-optimizely-cms-react-dev.tgz#packages/dist/@remkoj-optimizely-cms-react-dev.tgz::hash=c1d2fd&locator=cms-visual-builder-vercel-demo%40workspace%3A."
   dependencies:
     "@graphql-typed-document-node/core": "npm:^3.2.0"
     crypto-js: "npm:^4.2.0"
@@ -2410,7 +2410,7 @@ __metadata:
     graphql-request: ^6.1.0
     react: "*"
     react-dom: "*"
-  checksum: 10/565f36d342b5aeded7c67360eda569a619a5f2d4f3aa6ae00bff45be829973e02ca92700cdef0f253f9c1fce0aec90a9261b6c031bba974c9c902ffa1d62d925
+  checksum: 10/c3bfa33ace89c41ed8e102c5e7323f7af6e1c4ad574a4b49ade939a18e8ba5bbe7a0a0fab5da10e2bd6e7a614af34d38de116b91b48f4311c2cee48f9d7d7692
   languageName: node
   linkType: hard
 
