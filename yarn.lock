@@ -2364,7 +2364,7 @@ __metadata:
 
 "@remkoj/optimizely-cms-cli@file:packages/dist/@remkoj-optimizely-cms-cli-dev.tgz::locator=cms-visual-builder-vercel-demo%40workspace%3A.":
   version: 2.0.0-pre6
-  resolution: "@remkoj/optimizely-cms-cli@file:packages/dist/@remkoj-optimizely-cms-cli-dev.tgz#packages/dist/@remkoj-optimizely-cms-cli-dev.tgz::hash=75d083&locator=cms-visual-builder-vercel-demo%40workspace%3A."
+  resolution: "@remkoj/optimizely-cms-cli@file:packages/dist/@remkoj-optimizely-cms-cli-dev.tgz#packages/dist/@remkoj-optimizely-cms-cli-dev.tgz::hash=2c78bb&locator=cms-visual-builder-vercel-demo%40workspace%3A."
   dependencies:
     chalk: "npm:^5.3.0"
     cli-table3: "npm:^0.6.5"
@@ -2377,7 +2377,7 @@ __metadata:
     "@remkoj/optimizely-cms-api": 2.0.0-pre6
   bin:
     opti-cms: ./dist/index.js
-  checksum: 10/80b29f944c2e96b70599e66357df17e17580c1b1f16238281b9698233dc6ebdb667e72d9fde31a10d2a42604b39811fbd41d7895f0c8737910ee7bea4a80449c
+  checksum: 10/e73eb8295a20e30dee19e2d35df19176442ac50bab2e8d1424fada6f3bcd36b8d84bb41a3418bc3d66bef2b9101770807021629a7f898d498a67b0d480780dda
   languageName: node
   linkType: hard
 
@@ -2399,7 +2399,7 @@ __metadata:
 
 "@remkoj/optimizely-cms-react@file:packages/dist/@remkoj-optimizely-cms-react-dev.tgz::locator=cms-visual-builder-vercel-demo%40workspace%3A.":
   version: 2.0.0-pre6
-  resolution: "@remkoj/optimizely-cms-react@file:packages/dist/@remkoj-optimizely-cms-react-dev.tgz#packages/dist/@remkoj-optimizely-cms-react-dev.tgz::hash=c1d2fd&locator=cms-visual-builder-vercel-demo%40workspace%3A."
+  resolution: "@remkoj/optimizely-cms-react@file:packages/dist/@remkoj-optimizely-cms-react-dev.tgz#packages/dist/@remkoj-optimizely-cms-react-dev.tgz::hash=a6307c&locator=cms-visual-builder-vercel-demo%40workspace%3A."
   dependencies:
     "@graphql-typed-document-node/core": "npm:^3.2.0"
     crypto-js: "npm:^4.2.0"
@@ -2410,7 +2410,7 @@ __metadata:
     graphql-request: ^6.1.0
     react: "*"
     react-dom: "*"
-  checksum: 10/c3bfa33ace89c41ed8e102c5e7323f7af6e1c4ad574a4b49ade939a18e8ba5bbe7a0a0fab5da10e2bd6e7a614af34d38de116b91b48f4311c2cee48f9d7d7692
+  checksum: 10/e4e08f43fe0d05b13dcd100fe1364bb864eda5e901496349f09011fa7c6a473e58563f7f3ddd60436435f3e93e91bbd9930d51d309aa665067e6d447972534ce
   languageName: node
   linkType: hard
 

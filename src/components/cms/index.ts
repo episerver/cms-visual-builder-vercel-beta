@@ -4,6 +4,7 @@ import componentComponents from "./component";
 import elementComponents from "./element";
 import experienceComponents from "./experience";
 import pageComponents from "./page";
+import nodeComponents from "./styles"
 
 prefixDictionaryEntries(componentComponents, 'Component');
 prefixDictionaryEntries(elementComponents, 'Element');
@@ -11,12 +12,14 @@ prefixDictionaryEntries(elementComponents, 'Component'); // Elements are a subty
 prefixDictionaryEntries(experienceComponents, 'Experience');
 prefixDictionaryEntries(experienceComponents, 'Page'); // Experiences are a subtype of Page
 prefixDictionaryEntries(pageComponents, 'Page');
+prefixDictionaryEntries(nodeComponents, 'Component'); // Nodes are considered components as well
 
 export const cmsComponentDictionary : ComponentTypeDictionary = [
     ...componentComponents,
     ...elementComponents,
     ...experienceComponents,
     ...pageComponents,
+    ...nodeComponents
 ]
 
 export default cmsComponentDictionary

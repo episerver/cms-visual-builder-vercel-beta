@@ -8,6 +8,7 @@ import DateDisplay from '@/components/shared/date'
 import { getLabel } from '@/labels'
 import { RichText } from '@remkoj/optimizely-cms-react/components'
 import { getServerContext } from '@remkoj/optimizely-cms-react/rsc'
+import { Card } from '@/components/shared/Card'
 
 export const ArticleListElement : CmsComponent<ArticleListElementDataFragment> = async ({ data: { articleListCount = 3 }, contentLink: { locale } }) => 
 {
@@ -34,7 +35,10 @@ export const ArticleListElement : CmsComponent<ArticleListElementDataFragment> =
 
             return <div key={ article.articleMeta?.key } className="article-list-item w-full h-full relative">
                 <CmsContentLink href={article}>
+                    {/*
                     <article className="prose max-w-none p-8 pb-16 bg-white rounded-[20px] w-full h-full before:content-[''] before:absolute before:top-[1px] before:left-[1px] before:w-[calc(100%-2px)] before:h-[calc(100%-2px)] before:z-[-1] before:rounded-[20px] before:bg-azure before:transition-transform before:ease-in-out before:duration-300 hover:before:translate-x-8 hover:before:translate-y-8 focus:before:translate-x-8 focus:before:translate-y-8 dark:bg-vulcan-85 dark:text-ghost-white">
+                    */}
+                    <Card cardColor="white" as="article" className='w-full h-full' withHoverEffect>
                         <CmsImage src={ article.articleHeroImage } width={620} height={430} className='w-full rounded-[20px]' alt={ article.articleTitle ?? '' } />
                         <div className="flex justify-between mb-[16px]">
                             <p className="text-[12px] text-pale-sky my-0">{ byLabel } { authors ? authors : 'Mosey Bank'}</p>
@@ -42,7 +46,8 @@ export const ArticleListElement : CmsComponent<ArticleListElementDataFragment> =
                         </div>
                         <h3 className="my-0 mt-[16px]">{ article?.articleTitle ?? ''}</h3>
                         { article?.articleSummary && <RichText factory={ factory } text={ article?.articleSummary?.json } /> }
-                    </article>
+                    </Card>
+                    {/*</article>*/}
                 </CmsContentLink>
             </div>
         })}
