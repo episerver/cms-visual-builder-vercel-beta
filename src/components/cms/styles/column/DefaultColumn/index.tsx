@@ -1,12 +1,19 @@
 import { type CmsLayoutComponent } from "@remkoj/optimizely-cms-react"
-import type DefaultColumnStyles from './default.column.opti-style.json'
-import { extractSettings, type LayoutProps } from "@remkoj/optimizely-cms-react/components"
+import { extractSettings } from "@remkoj/optimizely-cms-react/components"
+import { type DefaultColumnProps } from "../displayTemplates"
 
-export const DefaultColumn : CmsLayoutComponent<LayoutProps<typeof DefaultColumnStyles>> = ({ layoutProps, children }) => {
+export const DefaultColumn : CmsLayoutComponent<DefaultColumnProps> = ({ layoutProps, children }) => {
     const tpl = layoutProps?.template ?? "none"
     const baseClasses : string[] = ['vb:column', 'vb:template:'+tpl, 'flex-1']
     const cssClasses : string[] = ['flex', 'flex-col']
-    const { contentSpacing, justifyContent, alignContent, showFrom, minWidth, overflow } = extractSettings(layoutProps)
+    const { 
+        contentSpacing = 'none', 
+        justifyContent = 'start', 
+        alignContent = 'start', 
+        showFrom = 'always', 
+        minWidth = 'auto', 
+        overflow = 'full'
+    } = extractSettings(layoutProps)
 
     switch (contentSpacing) {
         case 'small':
@@ -77,19 +84,20 @@ export const DefaultColumn : CmsLayoutComponent<LayoutProps<typeof DefaultColumn
             break;
     }
 
-    if (!overflow || overflow == "clip") {
-        cssClasses.push('overflow-hidden')
-        return <div className={ [...baseClasses, ...cssClasses].join(' ') }>{ children }</div>
-    }
-
     cssClasses.push('relative top-0')
+    let useChildContainer = false
     switch (overflow) {
         case 'right':
+            useChildContainer = true
             cssClasses.push('left-0')
             break
         case 'left':
+            useChildContainer = true
             cssClasses.push('right-0')
             break
+        case 'clip':
+            cssClasses.push('overflow-hidden')
+            break;
     }
 
     switch (showFrom) {
@@ -104,11 +112,11 @@ export const DefaultColumn : CmsLayoutComponent<LayoutProps<typeof DefaultColumn
             break;
     }
 
-    return <div className={ baseClasses.join(' ')+' relative' } data-overflow={ overflow }>
+    return useChildContainer ? <div className={ baseClasses.join(' ')+' relative' }>
         <div className={ cssClasses.join(' ') }>
             { children }
         </div>
-    </div>
+    </div> : <div className={ [...baseClasses, ...cssClasses].join(' ') }>{ children }</div>
 }
 
 export default DefaultColumn

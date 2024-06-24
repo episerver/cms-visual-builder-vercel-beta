@@ -15,7 +15,7 @@ export async function MoseyBankHeader() {
     const menuItems = filterMaybeArray(config.headerNavigation) as MenuItems
     const utilityItems = filterMaybeArray(config.utilityNavigation) as UtilityItems
 
-    return <Header logoItem={ config.logo } menuItems={ menuItems } utilityItems={ utilityItems } labels={ labels } />
+    return <Header logoItem={ config.logo } darkLogoItem={ config.darkLogo } menuItems={ menuItems } utilityItems={ utilityItems } labels={ labels } />
 }
 
 export default MoseyBankHeader

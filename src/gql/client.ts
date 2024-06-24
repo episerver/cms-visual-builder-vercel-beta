@@ -503,6 +503,9 @@ export const getHeaderDocument = /*#__PURE__*/ gql`
       logo: site_logo {
         ...ReferenceData
       }
+      darkLogo: site_logo_dark {
+        ...ReferenceData
+      }
       headerNavigation: site_main_navigation {
         ...IContentData
         ...MegaMenuGroupBlockData

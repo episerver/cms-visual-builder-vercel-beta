@@ -21,6 +21,7 @@ export const HeaderContext = createContext<HeaderContextType>({
 
 type HeaderProps = {
   logoItem?: Maybe<ReferenceDataFragment>
+  darkLogoItem?: Maybe<ReferenceDataFragment>
   menuItems: MenuItems
   utilityItems: UtilityItems
   labels?: Record<string,string>
@@ -31,7 +32,7 @@ type HeaderProps = {
  *
  * @return the rendered Header component
  */
-export default function Header({ menuItems, utilityItems, logoItem, labels = {} }: HeaderProps) {
+export default function Header({ menuItems, utilityItems, logoItem, darkLogoItem, labels = {} }: HeaderProps) {
   const logoRef = useRef<HTMLDivElement>(null);
   const secondaryMenuRef = useRef<HTMLUListElement>(null);
   const [currentMenu, setCurrentMenu] = useState("");
@@ -78,7 +79,7 @@ export default function Header({ menuItems, utilityItems, logoItem, labels = {} 
         onBlur={handleFocusLeave}
       >
         <div className="py-8 container mx-auto flex items-center w-full justify-between lg:justify-normal">
-          <Logo ref={ logoRef } logoItem={ logoItem }/>
+          <Logo ref={ logoRef } logoItem={ logoItem } darkLogoItem={ darkLogoItem } />
 
           <div className="lg:hidden">
             <button className="btn btn--secondary ml-[10px]" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} >

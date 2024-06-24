@@ -7,25 +7,10 @@ import { RichText } from "@remkoj/optimizely-cms-react/components";
 import { getServerContext, CmsEditable, CmsContentArea } from "@remkoj/optimizely-cms-react/rsc";
 import { getLabel } from "@/labels";
 import { linkDataToUrl } from '@/components/shared/cms_link'
+import { Card, type ColorOptions } from '@/components/shared/Card'
 
-const cssClasses : Array<string> = [
-    "bg-ghost-white border-[2px] text-vulcan",
-    "bg-azure dark:bg-transparent dark:border-azure dark:border-4 text-white",
-    "bg-vulcan text-white",
-    "bg-tangy dark:bg-transparent dark:border-tangy dark:border-4 text-vulcan",
-    "bg-verdansk dark:bg-transparent dark:border-verdansk dark:border-4 text-vulcan",
-    "bg-paleruby dark:bg-transparent dark:border-paleruby dark:border-4 text-white",
-    "bg-people-eater dark:bg-transparent dark:border-people-eater dark:border-4 text-white",
-]
-const buttonColor : Array<"dark" | "light"> = [
-    "dark",
-    "light",
-    "light",
-    "dark",
-    "dark",
-    "light",
-    "light"
-]
+const cssClasses : Array<ColorOptions> = [ "white", "blue", "dark_blue", "orange", "green", "red", "purple" ]
+const buttonColor : Array<"dark" | "light"> = [ "dark", "light", "light", "dark", "dark", "light", "light" ]
 
 export const ArticleGroupPagePage : CmsComponent<ArticleGroupPageDataFragment> = async ({ data, contentLink }) => {
     
@@ -45,17 +30,19 @@ export const ArticleGroupPagePage : CmsComponent<ArticleGroupPageDataFragment> =
                 <CmsContentArea items={ data.MainContent } fieldName="MainContent" className="w-full mt-[32pt]" />
             </div>
             <div className="columns-1 md:columns-1 lg:columns-2 xl:columns-3 gap-8 mb-[24pt]">
-            { articles.items.map(item => {
-                const cssClassId = Math.floor(Math.random() * cssClasses.length)
+            { articles.items.map((item, idx) => {
+                const cssClassId = Math.floor(idx % cssClasses.length)
                 const url = item.link ? linkDataToUrl(item.link) : undefined
-                return <div key={ item.key } className={`inline-block w-full group ${ cssClasses[cssClassId] } rounded-[20px] overflow-hidden`}>
-                    <div className="relative aspect-[4/3] mt-6 m-6 rounded-[15px] overflow-hidden"><CmsImage src={ item.image } alt="Hero image" fill className="object-cover" /></div>
-                    <div className="font-bold text-4xl p-6">{ item.title }</div>
-                    <RichText as="div" text={ item.intro } factory={ factory } className="prose max-w-none px-6" />
-                    <div className="p-6">
+                return <Card key={ item.key } className={`inline-block w-full group mb-8`} cardColor={ cssClasses[cssClassId] } roundedCorners="small">
+                    <div className="relative aspect-[4/3] mb-6 rounded-[15px] overflow-hidden">
+                        <CmsImage src={ item.image } alt="Hero image" fill className="object-cover not-prose" />
+                    </div>
+                    <div className="font-bold text-4xl py-6">{ item.title }</div>
+                    <RichText as="div" text={ item.intro } factory={ factory } className="prose max-w-none" />
+                    <div className="pt-6">
                         <Button url={ url } buttonVariant="default" buttonType="secondary" buttonColor={ buttonColor[cssClassId] }>{ continueReading }</Button>
                     </div>
-                </div>
+                </Card>
             })}
             </div>
         </div>
