@@ -1,6 +1,6 @@
 import { OptimizelyNextPage as CmsComponent } from "@remkoj/optimizely-cms-nextjs"
 import { ArticleGroupPageDataFragmentDoc, type ArticleGroupPageDataFragment } from "@/gql/graphql";
-import { getArticles } from "./api";
+import { getArticles, getJobListings } from "./api";
 import { CmsImage } from "@/components/shared/cms_image";
 import { Button } from "@/components/shared/button";
 import { RichText } from "@remkoj/optimizely-cms-react/components";
@@ -8,18 +8,30 @@ import { getServerContext, CmsEditable, CmsContentArea } from "@remkoj/optimizel
 import { getLabel } from "@/labels";
 import { linkDataToUrl } from '@/components/shared/cms_link'
 import { Card, type ColorOptions } from '@/components/shared/Card'
+import { useLocation } from 'react-router-dom';
 
 const cssClasses : Array<ColorOptions> = [ "white", "blue", "dark_blue", "orange", "green", "red", "purple" ]
 const buttonColor : Array<"dark" | "light"> = [ "dark", "light", "light", "dark", "dark", "light", "light" ]
 
 export const ArticleGroupPagePage : CmsComponent<ArticleGroupPageDataFragment> = async ({ data, contentLink }) => {
-    
-    const articles = contentLink.key ? await getArticles(contentLink.key, contentLink.locale) : { total: 0, items: []}
+    const location = useLocation();
+  
+    const getQueryValue = (key:string) => {
+      const params = new URLSearchParams(location.search);
+      return params.get(key);
+    };
+    const
+     articles = contentLink.key ? await getArticles(contentLink.key, contentLink.locale) : { total: 0, items: []}
+    const jobListings = await getJobListings(getQueryValue("q"))
     const { factory } = getServerContext()
-    const continueReading = await getLabel("Continue reading", { fallback: "Continue reading"})
+    const continueReading = await getLabel("Continue reading", { fallback: "Continue reading"})    
 
     return <div className="outer-padding">
         <div className="mx-auto container">
+            <div className="py-[32pt]">                
+                <div>Search result:</div>
+                <div>{jobListings}</div>
+            </div>
             <div className="py-[32pt]">
                 <div className="max-w-prose text-center mb-[32pt] mx-auto">
                     <CmsEditable as="h1" cmsFieldName="articleGroupTitle" className="text-[48pt] font-bold">

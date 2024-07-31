@@ -56,3 +56,21 @@ function isNotNullOrUndefined<T>(input: T | undefined | null) : input is T
 {
     return input ? true : false
 }
+
+export async function getJobListings(query: string){
+    const searchQuery = {
+        q: query,
+        numberOfResults: 10
+      };
+      
+      const response = await fetch('https://platform.cloud.coveo.com/rest/search/v2', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer xx6d214dcf-77bf-4154-921e-8a555ea089dc',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(searchQuery)
+      });
+
+      return response.json();      
+}
